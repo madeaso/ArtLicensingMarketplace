@@ -22725,7 +22725,7 @@
 	    _react2.default.createElement(
 	      _reactBootstrap.Modal.Body,
 	      null,
-	      'Our modal component rendered perfectly!'
+	      'stuff stuff stuff'
 	    ),
 	    _react2.default.createElement(
 	      _reactBootstrap.Modal.Footer,

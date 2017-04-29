@@ -9,7 +9,7 @@ const ModalInstance = (
       </Modal.Header>
 
       <Modal.Body>
-        Our modal component rendered perfectly!
+        stuff stuff stuff
       </Modal.Body>
 
       <Modal.Footer>
