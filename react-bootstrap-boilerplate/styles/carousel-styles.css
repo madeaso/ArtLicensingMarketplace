@@ -1,0 +1,22 @@
+/*Size of carousel - take up 100% page width and 25% page height*/
+.carousel{
+    width: 100%;
+    height: 25%;
+}
+
+/*Fill 100% of parent container: .carousel*/
+.carousel-inner{
+    height: 100%;
+}
+.item{
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+}
+/*Centers image in carousel-inner*/
+.carousel-inner > .item > img{
+    margin: 0 auto;
+    background-size: cover;
+}
+

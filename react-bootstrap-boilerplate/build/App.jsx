@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ModalInstance from './BootstrapComponent';
+import TopContainer from './TopContainer';
 
 
-ReactDOM.render(ModalInstance, document.getElementById('content'));
+ReactDOM.render(TopContainer, document.getElementById('content'));
