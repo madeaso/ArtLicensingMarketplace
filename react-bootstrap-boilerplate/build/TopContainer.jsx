@@ -1,5 +1,5 @@
 import React from 'react';
-import {Carousel,Button,FormControls} from 'react-bootstrap';
+import {Carousel,Button,Glyphicon,DropdownButton,MenuItem} from 'react-bootstrap';
 import '../styles/carousel-styles.css';
 
 class TopContainer extends React.Component{
@@ -31,11 +31,16 @@ class TopContainer extends React.Component{
                 </Carousel>
                 <div id="btn-group">
                     <Button>Login</Button>
-                    {'\t'}
+                    {" "}
                     <Button>Sign Up</Button>
                 </div>
                 <div id="form-group">
-                    <input type="text" />
+                    <input type="text" placeholder="  search"/>
+                        <DropdownButton title="Dropdown" id="dropdown">
+                            <MenuItem eventKey="1">Dropdown link</MenuItem>
+                            <MenuItem eventKey="2">Dropdown link</MenuItem>
+                        </DropdownButton>
+                    <Button bsSize="large"><Glyphicon glyph="search" /></Button>
                 </div>
             </div>
         );

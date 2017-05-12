@@ -1,9 +1,12 @@
 import React from 'react';
+import {Button,Glyphicon} from 'react-bootstrap';
 
 class BottomContainer extends React.Component {
     render(){
         return(
-            <p>This will be a listing of available art</p>
+            <div>
+                <p>This will be a listing of available art</p>
+            </div>
         );
     }
 }

@@ -7,7 +7,7 @@ class MainPage extends React.Component {
         return(
             <div>
                 <TopContainer>{this.props.children}</TopContainer>
-                <BottomContainer></BottomContainer>
+                <BottomContainer>{this.props.children}</BottomContainer>
             </div>
         );
     }

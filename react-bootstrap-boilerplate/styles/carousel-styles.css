@@ -26,7 +26,7 @@
     height: 450px;
 }
 
-/*Styling for loging button group*/
+/*Styling for login button group*/
 #btn-group{
     z-index:1!important;
     top:5%;
@@ -34,20 +34,70 @@
     position: absolute;
 }
 
+/*Styling for all buttons*/
 .btn{
     background-color:initial;
-    font-size: large;
+    font-size: smaller;
     border-radius:10px;
     border-style:solid;
     border-color:white;
     color:white;
+    margin-top:-3px;
 }
 
+/*Styling for button press and hover*/
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    background-color:#eaeaea;
+    color:#727272;
+}
+
+/*Stying for form group: search bar, drop down, search button*/
 #form-group{
     z-index:1!important;
     top:20%;
-    left:40%;
+    left:20%;
     position:absolute;
 }
+
+/*Styling for search bar*/
+input{
+    width:350px;
+    border-radius:5px;
+    border-style:none;
+    height:35px;
+    font-size:medium;
+    background-color:#eaeaea;
+}
+
+/*Styling for drop-down menu*/
+#dropdown{
+    border-radius: 5px;
+    border-style:none;
+    height:35px;
+    font-size:medium;
+    background-color:#eaeaea;
+    color:#727272;
+    margin-top:-3px;
+}
+
+.dropdown-menu{
+    background-color:#aeaeae;
+    color:#727272;
+    font-size:medium;
+    border-radius:5px;
+    border-style:none;
+}
+
+/*Styling for search button focus*/
+input:focus{
+    outline:none;
+}
+
 
 

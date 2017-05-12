@@ -22393,7 +22393,11 @@
 	                    null,
 	                    this.props.children
 	                ),
-	                _react2.default.createElement(_BottomContainer2.default, null)
+	                _react2.default.createElement(
+	                    _BottomContainer2.default,
+	                    null,
+	                    this.props.children
+	                )
 	            );
 	        }
 	    }]);
@@ -22521,7 +22525,7 @@
 	                        null,
 	                        'Login'
 	                    ),
-	                    '\t',
+	                    " ",
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Button,
 	                        null,
@@ -22531,7 +22535,26 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'form-group' },
-	                    _react2.default.createElement('input', { type: 'text' })
+	                    _react2.default.createElement('input', { type: 'text', placeholder: '  search' }),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.DropdownButton,
+	                        { title: 'Dropdown', id: 'dropdown' },
+	                        _react2.default.createElement(
+	                            _reactBootstrap.MenuItem,
+	                            { eventKey: '1' },
+	                            'Dropdown link'
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.MenuItem,
+	                            { eventKey: '2' },
+	                            'Dropdown link'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Button,
+	                        { bsSize: 'large' },
+	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'search' })
+	                    )
 	                )
 	            );
 	        }
@@ -41972,7 +41995,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\r\n/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 20%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n/*Styling for loging button group*/\r\n#btn-group{\r\n    z-index:1!important;\r\n    top:5%;\r\n    left:75%;\r\n    position: absolute;\r\n}\r\n\r\n.btn{\r\n    background-color:initial;\r\n    font-size: large;\r\n    border-radius:10px;\r\n    border-style:solid;\r\n    border-color:white;\r\n    color:white;\r\n}\r\n\r\n#form-group{\r\n    z-index:1!important;\r\n    top:50%;\r\n    left:50%;\r\n    position:absolute;\r\n}\r\n\r\n\r\n", ""]);
+	exports.push([module.id, "\r\n/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 20%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n/*Styling for login button group*/\r\n#btn-group{\r\n    z-index:1!important;\r\n    top:5%;\r\n    left:75%;\r\n    position: absolute;\r\n}\r\n\r\n/*Styling for all buttons*/\r\n.btn{\r\n    background-color:initial;\r\n    font-size: smaller;\r\n    border-radius:10px;\r\n    border-style:solid;\r\n    border-color:white;\r\n    color:white;\r\n    margin-top:-3px;\r\n}\r\n\r\n/*Styling for button press and hover*/\r\n.btn:focus,\r\n.btn:active:focus,\r\n.btn.active:focus,\r\n.btn.focus,\r\n.btn:active.focus,\r\n.btn.active.focus {\r\n    outline: none;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n}\r\n\r\n/*Stying for form group: search bar, drop down, search button*/\r\n#form-group{\r\n    z-index:1!important;\r\n    top:20%;\r\n    left:20%;\r\n    position:absolute;\r\n}\r\n\r\n/*Styling for search bar*/\r\ninput{\r\n    width:350px;\r\n    border-radius:5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n}\r\n\r\n/*Styling for drop-down menu*/\r\n#dropdown{\r\n    border-radius: 5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n    margin-top:-3px;\r\n}\r\n\r\n.dropdown-menu{\r\n    background-color:#aeaeae;\r\n    color:#727272;\r\n    font-size:medium;\r\n    border-radius:5px;\r\n    border-style:none;\r\n}\r\n\r\n/*Styling for search button focus*/\r\ninput:focus{\r\n    outline:none;\r\n}\r\n\r\n\r\n\r\n", ""]);
 	
 	// exports
 
@@ -42310,6 +42333,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 184);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42331,9 +42356,13 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'p',
+	                'div',
 	                null,
-	                'This will be a listing of available art'
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'This will be a listing of available art'
+	                )
 	            );
 	        }
 	    }]);
