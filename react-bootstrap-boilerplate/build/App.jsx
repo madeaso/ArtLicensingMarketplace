@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TopContainer from './TopContainer';
+import MainPage from './MainPage';
 
-
-ReactDOM.render(TopContainer, document.getElementById('content'));
+ReactDOM.render(<MainPage></MainPage>,document.getElementById('content'));
