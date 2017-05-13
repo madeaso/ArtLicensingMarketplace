@@ -75,7 +75,7 @@ input{
     background-color:#eaeaea;
 }
 
-/*Styling for drop-down menu*/
+/*Styling for drop-down menu - focused button*/
 #dropdown{
     border-radius: 5px;
     border-style:none;
@@ -86,17 +86,40 @@ input{
     margin-top:-3px;
 }
 
+/*Styling for dropdown menu items*/
 .dropdown-menu{
-    background-color:#aeaeae;
+    background-color:#eaeaea;
     color:#727272;
     font-size:medium;
     border-radius:5px;
     border-style:none;
 }
 
+
+
 /*Styling for search button focus*/
 input:focus{
     outline:none;
+}
+
+/*Styling for quicksearch links*/
+#quick-search-group{
+    top:25%;
+    left:13%;
+    position:absolute;
+}
+
+#logo{
+    top:9%;
+    left:33%;
+    position:absolute;
+}
+
+/*Styling for links*/
+#link-style{
+    color:#eaeaea;
+    font-size: large;
+    padding-left:50px;
 }
 
 

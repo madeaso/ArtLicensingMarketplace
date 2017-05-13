@@ -34,13 +34,25 @@ class TopContainer extends React.Component{
                     {" "}
                     <Button>Sign Up</Button>
                 </div>
+                <div id="logo">
+                    <img height="90" width="250"src="../assets/whitelogo.png"/>
+                </div>
                 <div id="form-group">
-                    <input type="text" placeholder="  search"/>
-                        <DropdownButton title="Dropdown" id="dropdown">
-                            <MenuItem eventKey="1">Dropdown link</MenuItem>
-                            <MenuItem eventKey="2">Dropdown link</MenuItem>
+                    <input type="text" placeholder="  Search"/>
+                        <DropdownButton title="Filter By" id="dropdown">
+                            <MenuItem eventKey="1">No Filter</MenuItem>
+                            <MenuItem eventKey="1">Artists</MenuItem>
+                            <MenuItem eventKey="2">Subjects</MenuItem>
+                            <MenuItem eventKey="3">Recently Added</MenuItem>
                         </DropdownButton>
                     <Button bsSize="large"><Glyphicon glyph="search" /></Button>
+                </div>
+                <div id="quick-search-group">
+                    <li class="quick-search-links">
+                        <a id="link-style" href="./build/MainPage.jsx"><Glyphicon glyph="user"/> Artists</a>
+                        <a id="link-style" href="./build/MainPage.jsx"><Glyphicon glyph="picture"/> Subjects</a>
+                        <a id="link-style" href="./build/MainPage.jsx"><Glyphicon glyph="calendar"/> Recently Added</a>
+                    </li>
                 </div>
             </div>
         );

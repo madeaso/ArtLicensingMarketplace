@@ -22534,26 +22534,67 @@
 	                ),
 	                _react2.default.createElement(
 	                    'div',
+	                    { id: 'logo' },
+	                    _react2.default.createElement('img', { height: '90', width: '250', src: '../assets/whitelogo.png' })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
 	                    { id: 'form-group' },
-	                    _react2.default.createElement('input', { type: 'text', placeholder: '  search' }),
+	                    _react2.default.createElement('input', { type: 'text', placeholder: '  Search' }),
 	                    _react2.default.createElement(
 	                        _reactBootstrap.DropdownButton,
-	                        { title: 'Dropdown', id: 'dropdown' },
+	                        { title: 'Filter By', id: 'dropdown' },
 	                        _react2.default.createElement(
 	                            _reactBootstrap.MenuItem,
 	                            { eventKey: '1' },
-	                            'Dropdown link'
+	                            'No Filter'
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.MenuItem,
+	                            { eventKey: '1' },
+	                            'Artists'
 	                        ),
 	                        _react2.default.createElement(
 	                            _reactBootstrap.MenuItem,
 	                            { eventKey: '2' },
-	                            'Dropdown link'
+	                            'Subjects'
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.MenuItem,
+	                            { eventKey: '3' },
+	                            'Recently Added'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Button,
 	                        { bsSize: 'large' },
 	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'search' })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'quick-search-group' },
+	                    _react2.default.createElement(
+	                        'li',
+	                        { 'class': 'quick-search-links' },
+	                        _react2.default.createElement(
+	                            'a',
+	                            { id: 'link-style', href: './build/MainPage.jsx' },
+	                            _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'user' }),
+	                            ' Artists'
+	                        ),
+	                        _react2.default.createElement(
+	                            'a',
+	                            { id: 'link-style', href: './build/MainPage.jsx' },
+	                            _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'picture' }),
+	                            ' Subjects'
+	                        ),
+	                        _react2.default.createElement(
+	                            'a',
+	                            { id: 'link-style', href: './build/MainPage.jsx' },
+	                            _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'calendar' }),
+	                            ' Recently Added'
+	                        )
 	                    )
 	                )
 	            );
@@ -41995,7 +42036,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\r\n/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 20%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n/*Styling for login button group*/\r\n#btn-group{\r\n    z-index:1!important;\r\n    top:5%;\r\n    left:75%;\r\n    position: absolute;\r\n}\r\n\r\n/*Styling for all buttons*/\r\n.btn{\r\n    background-color:initial;\r\n    font-size: smaller;\r\n    border-radius:10px;\r\n    border-style:solid;\r\n    border-color:white;\r\n    color:white;\r\n    margin-top:-3px;\r\n}\r\n\r\n/*Styling for button press and hover*/\r\n.btn:focus,\r\n.btn:active:focus,\r\n.btn.active:focus,\r\n.btn.focus,\r\n.btn:active.focus,\r\n.btn.active.focus {\r\n    outline: none;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n}\r\n\r\n/*Stying for form group: search bar, drop down, search button*/\r\n#form-group{\r\n    z-index:1!important;\r\n    top:20%;\r\n    left:20%;\r\n    position:absolute;\r\n}\r\n\r\n/*Styling for search bar*/\r\ninput{\r\n    width:350px;\r\n    border-radius:5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n}\r\n\r\n/*Styling for drop-down menu*/\r\n#dropdown{\r\n    border-radius: 5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n    margin-top:-3px;\r\n}\r\n\r\n.dropdown-menu{\r\n    background-color:#aeaeae;\r\n    color:#727272;\r\n    font-size:medium;\r\n    border-radius:5px;\r\n    border-style:none;\r\n}\r\n\r\n/*Styling for search button focus*/\r\ninput:focus{\r\n    outline:none;\r\n}\r\n\r\n\r\n\r\n", ""]);
+	exports.push([module.id, "\r\n/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 20%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n/*Styling for login button group*/\r\n#btn-group{\r\n    z-index:1!important;\r\n    top:5%;\r\n    left:75%;\r\n    position: absolute;\r\n}\r\n\r\n/*Styling for all buttons*/\r\n.btn{\r\n    background-color:initial;\r\n    font-size: smaller;\r\n    border-radius:10px;\r\n    border-style:solid;\r\n    border-color:white;\r\n    color:white;\r\n    margin-top:-3px;\r\n}\r\n\r\n/*Styling for button press and hover*/\r\n.btn:focus,\r\n.btn:active:focus,\r\n.btn.active:focus,\r\n.btn.focus,\r\n.btn:active.focus,\r\n.btn.active.focus {\r\n    outline: none;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n}\r\n\r\n/*Stying for form group: search bar, drop down, search button*/\r\n#form-group{\r\n    z-index:1!important;\r\n    top:20%;\r\n    left:20%;\r\n    position:absolute;\r\n}\r\n\r\n/*Styling for search bar*/\r\ninput{\r\n    width:350px;\r\n    border-radius:5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n}\r\n\r\n/*Styling for drop-down menu - focused button*/\r\n#dropdown{\r\n    border-radius: 5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n    margin-top:-3px;\r\n}\r\n\r\n/*Styling for dropdown menu items*/\r\n.dropdown-menu{\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n    font-size:medium;\r\n    border-radius:5px;\r\n    border-style:none;\r\n}\r\n\r\n\r\n\r\n/*Styling for search button focus*/\r\ninput:focus{\r\n    outline:none;\r\n}\r\n\r\n/*Styling for quicksearch links*/\r\n#quick-search-group{\r\n    top:25%;\r\n    left:13%;\r\n    position:absolute;\r\n}\r\n\r\n#logo{\r\n    top:9%;\r\n    left:33%;\r\n    position:absolute;\r\n}\r\n\r\n/*Styling for links*/\r\n#link-style{\r\n    color:#eaeaea;\r\n    font-size: large;\r\n    padding-left:50px;\r\n}\r\n\r\n\r\n\r\n", ""]);
 	
 	// exports
 
