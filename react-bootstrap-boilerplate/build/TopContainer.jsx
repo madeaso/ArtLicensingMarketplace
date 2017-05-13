@@ -5,7 +5,7 @@ import '../styles/carousel-styles.css';
 class TopContainer extends React.Component{
     render(){
         return(
-            <div>
+            <div id="top-container">
                 <Carousel>
                     <Carousel.Item>
                         <img width={900} height={500} src="../assets/testFeatureItem1.jpg"/>

@@ -1,8 +1,16 @@
 
+
+/*Styling for top container*/
+#top-container{
+    position:relative;
+    width: 100%;
+    height:20%;
+}
+
 /*Size of carousel - take up 100% page width and 25% page height*/
 .carousel{
     width: 100%;
-    height: 20%;
+    height: 100%;
     z-index: -1;
 }
 
@@ -60,8 +68,8 @@
 /*Stying for form group: search bar, drop down, search button*/
 #form-group{
     z-index:1!important;
-    top:20%;
-    left:20%;
+    top:45%;
+    left:33%;
     position:absolute;
 }
 
@@ -104,14 +112,14 @@ input:focus{
 
 /*Styling for quicksearch links*/
 #quick-search-group{
-    top:25%;
-    left:13%;
+    top:55%;
+    left:29%;
     position:absolute;
 }
 
 #logo{
-    top:9%;
-    left:33%;
+    top:23%;
+    left:42%;
     position:absolute;
 }
 
