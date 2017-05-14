@@ -1,0 +1,19 @@
+/*Styling for drop-down menu - focused button*/
+#dropdown{
+    border-radius: 5px;
+    border-style:none;
+    height:35px;
+    font-size:medium;
+    background-color:#eaeaea;
+    color:#727272;
+    margin-top:-3px;
+}
+
+/*Styling for dropdown menu items*/
+.dropdown-menu{
+    background-color:#eaeaea;
+    color:#727272;
+    font-size:medium;
+    border-radius:5px;
+    border-style:none;
+}

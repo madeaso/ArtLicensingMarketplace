@@ -1,0 +1,30 @@
+/*Styling for login button group*/
+#btn-group{
+    z-index:1!important;
+    top:5%;
+    left:75%;
+    position: absolute;
+}
+
+/*Styling for all buttons*/
+.btn{
+    background-color:initial;
+    font-size: smaller;
+    border-radius:10px;
+    border-style:solid;
+    border-color:white;
+    color:white;
+    margin-top:-3px;
+}
+
+/*Styling for button press and hover*/
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    background-color:#eaeaea;
+    color:#727272;
+}

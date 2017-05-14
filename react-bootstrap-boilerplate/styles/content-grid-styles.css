@@ -1,0 +1,38 @@
+
+#grid{
+    padding:50px;
+}
+#item-container {
+    position: relative;
+    margin: 10px;
+    display: inline-block;
+}
+
+#overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    opacity: 0.4;
+}
+
+#item-container:hover #overlay {
+    height: 100%;
+}
+
+#text {
+    white-space: pre;
+    color: white;
+    font-size: small;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}

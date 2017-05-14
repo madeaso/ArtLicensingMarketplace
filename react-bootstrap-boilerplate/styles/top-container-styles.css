@@ -1,0 +1,12 @@
+/*Styling for top container*/
+#top-container{
+    position:relative;
+    width: 100%;
+    height:20%;
+}
+
+#logo{
+    top:23%;
+    left:42%;
+    position:absolute;
+}

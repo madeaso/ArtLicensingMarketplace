@@ -1,0 +1,13 @@
+/*Styling for quicksearch links*/
+#quick-search-group{
+    top:55%;
+    left:29%;
+    position:absolute;
+}
+
+/*Styling for links*/
+#link-style{
+    color:#eaeaea;
+    font-size: large;
+    padding-left:50px;
+}

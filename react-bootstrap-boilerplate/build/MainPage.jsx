@@ -1,6 +1,6 @@
 import React from 'react';
-import TopContainer from './TopContainer';
-import BottomContainer from './BottomContainer';
+import TopContainer from './Header/TopContainer';
+import BottomContainer from './Body/BottomContainer';
 
 class MainPage extends React.Component {
     render(){

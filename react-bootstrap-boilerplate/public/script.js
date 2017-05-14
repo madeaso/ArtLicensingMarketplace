@@ -22357,11 +22357,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TopContainer = __webpack_require__(/*! ./TopContainer */ 183);
+	var _TopContainer = __webpack_require__(/*! ./Header/TopContainer */ 183);
 	
 	var _TopContainer2 = _interopRequireDefault(_TopContainer);
 	
-	var _BottomContainer = __webpack_require__(/*! ./BottomContainer */ 456);
+	var _BottomContainer = __webpack_require__(/*! ./Body/BottomContainer */ 470);
 	
 	var _BottomContainer2 = _interopRequireDefault(_BottomContainer);
 	
@@ -22412,9 +22412,9 @@
 
 /***/ }),
 /* 183 */
-/*!********************************!*\
-  !*** ./build/TopContainer.jsx ***!
-  \********************************/
+/*!***************************************!*\
+  !*** ./build/Header/TopContainer.jsx ***!
+  \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22431,7 +22431,23 @@
 	
 	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 184);
 	
-	__webpack_require__(/*! ../styles/carousel-styles.css */ 452);
+	var _CustomCarousel = __webpack_require__(/*! ./CustomCarousel */ 452);
+	
+	var _CustomCarousel2 = _interopRequireDefault(_CustomCarousel);
+	
+	var _LoginButtonGroup = __webpack_require__(/*! ./LoginButtonGroup */ 457);
+	
+	var _LoginButtonGroup2 = _interopRequireDefault(_LoginButtonGroup);
+	
+	var _SearchFormGroup = __webpack_require__(/*! ./SearchFormGroup */ 460);
+	
+	var _SearchFormGroup2 = _interopRequireDefault(_SearchFormGroup);
+	
+	var _QuickSearchGroup = __webpack_require__(/*! ./QuickSearchGroup */ 465);
+	
+	var _QuickSearchGroup2 = _interopRequireDefault(_QuickSearchGroup);
+	
+	__webpack_require__(/*! ../../styles/top-container-styles.css */ 468);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22457,145 +22473,29 @@
 	                'div',
 	                { id: 'top-container' },
 	                _react2.default.createElement(
-	                    _reactBootstrap.Carousel,
+	                    _CustomCarousel2.default,
 	                    null,
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Carousel.Item,
-	                        null,
-	                        _react2.default.createElement('img', { width: 900, height: 500, src: '../assets/testFeatureItem1.jpg' }),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.Carousel.Caption,
-	                            null,
-	                            _react2.default.createElement(
-	                                'h4',
-	                                null,
-	                                ' Variable for Work Title 1'
-	                            ),
-	                            _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                'Variable for by Line 1'
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Carousel.Item,
-	                        null,
-	                        _react2.default.createElement('img', { width: 900, height: 500, src: '../assets/testFeatureItem2.jpg' }),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.Carousel.Caption,
-	                            null,
-	                            _react2.default.createElement(
-	                                'h4',
-	                                null,
-	                                ' Variable for Work Title 2'
-	                            ),
-	                            _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                'Variable for by Line 2'
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Carousel.Item,
-	                        null,
-	                        _react2.default.createElement('img', { width: 900, height: 500, src: '../assets/testFeatureItem3.jpg' }),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.Carousel.Caption,
-	                            null,
-	                            _react2.default.createElement(
-	                                'h4',
-	                                null,
-	                                ' Variable for Work Title 3'
-	                            ),
-	                            _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                'Variable for by Line 3'
-	                            )
-	                        )
-	                    )
+	                    this.props.children
 	                ),
 	                _react2.default.createElement(
-	                    'div',
-	                    { id: 'btn-group' },
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Button,
-	                        null,
-	                        'Login'
-	                    ),
-	                    " ",
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Button,
-	                        null,
-	                        'Sign Up'
-	                    )
+	                    _LoginButtonGroup2.default,
+	                    null,
+	                    this.props.children
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'logo' },
-	                    _react2.default.createElement('img', { height: '90', width: '250', src: '../assets/whitelogo.png' })
+	                    _react2.default.createElement('img', { height: '90', width: '250', src: '../../assets/whitelogo.png' })
 	                ),
 	                _react2.default.createElement(
-	                    'div',
-	                    { id: 'form-group' },
-	                    _react2.default.createElement('input', { type: 'text', placeholder: '  Search' }),
-	                    _react2.default.createElement(
-	                        _reactBootstrap.DropdownButton,
-	                        { title: 'Filter By', id: 'dropdown' },
-	                        _react2.default.createElement(
-	                            _reactBootstrap.MenuItem,
-	                            { eventKey: '1' },
-	                            'No Filter'
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.MenuItem,
-	                            { eventKey: '1' },
-	                            'Artists'
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.MenuItem,
-	                            { eventKey: '2' },
-	                            'Subjects'
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.MenuItem,
-	                            { eventKey: '3' },
-	                            'Recently Added'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Button,
-	                        { bsSize: 'large' },
-	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'search' })
-	                    )
+	                    _SearchFormGroup2.default,
+	                    null,
+	                    this.props.children
 	                ),
 	                _react2.default.createElement(
-	                    'div',
-	                    { id: 'quick-search-group' },
-	                    _react2.default.createElement(
-	                        'li',
-	                        { 'class': 'quick-search-links' },
-	                        _react2.default.createElement(
-	                            'a',
-	                            { id: 'link-style', href: './build/MainPage.jsx' },
-	                            _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'user' }),
-	                            ' Artists'
-	                        ),
-	                        _react2.default.createElement(
-	                            'a',
-	                            { id: 'link-style', href: './build/MainPage.jsx' },
-	                            _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'picture' }),
-	                            ' Subjects'
-	                        ),
-	                        _react2.default.createElement(
-	                            'a',
-	                            { id: 'link-style', href: './build/MainPage.jsx' },
-	                            _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'calendar' }),
-	                            ' Recently Added'
-	                        )
-	                    )
+	                    _QuickSearchGroup2.default,
+	                    null,
+	                    this.props.children
 	                )
 	            );
 	        }
@@ -41997,6 +41897,121 @@
 
 /***/ }),
 /* 452 */
+/*!*****************************************!*\
+  !*** ./build/Header/CustomCarousel.jsx ***!
+  \*****************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 184);
+	
+	__webpack_require__(/*! ../../styles/carousel-styles.css */ 453);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CustomCarousel = function (_React$Component) {
+	    _inherits(CustomCarousel, _React$Component);
+	
+	    function CustomCarousel() {
+	        _classCallCheck(this, CustomCarousel);
+	
+	        return _possibleConstructorReturn(this, (CustomCarousel.__proto__ || Object.getPrototypeOf(CustomCarousel)).apply(this, arguments));
+	    }
+	
+	    _createClass(CustomCarousel, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _reactBootstrap.Carousel,
+	                null,
+	                _react2.default.createElement(
+	                    _reactBootstrap.Carousel.Item,
+	                    null,
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/testFeatureItem1.jpg' }),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Carousel.Caption,
+	                        null,
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            ' Variable for Work Title 1'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            'Variable for by Line 1'
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Carousel.Item,
+	                    null,
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/testFeatureItem2.jpg' }),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Carousel.Caption,
+	                        null,
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            ' Variable for Work Title 2'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            'Variable for by Line 2'
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Carousel.Item,
+	                    null,
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/testFeatureItem3.jpg' }),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Carousel.Caption,
+	                        null,
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            ' Variable for Work Title 3'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            'Variable for by Line 3'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return CustomCarousel;
+	}(_react2.default.Component);
+	
+	exports.default = CustomCarousel;
+	
+	/* You can also use props.message and have props as a param in the ({message, children})
+	, but this is much cleaner */
+
+/***/ }),
+/* 453 */
 /*!************************************!*\
   !*** ./styles/carousel-styles.css ***!
   \************************************/
@@ -42005,10 +42020,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !../~/css-loader!./carousel-styles.css */ 453);
+	var content = __webpack_require__(/*! !../~/css-loader!./carousel-styles.css */ 454);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 455)(content, {});
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -42025,24 +42040,24 @@
 	}
 
 /***/ }),
-/* 453 */
+/* 454 */
 /*!***************************************************!*\
   !*** ./~/css-loader!./styles/carousel-styles.css ***!
   \***************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 454)();
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "\r\n\r\n/*Styling for top container*/\r\n#top-container{\r\n    position:relative;\r\n    width: 100%;\r\n    height:20%;\r\n}\r\n\r\n/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n/*Styling for login button group*/\r\n#btn-group{\r\n    z-index:1!important;\r\n    top:5%;\r\n    left:75%;\r\n    position: absolute;\r\n}\r\n\r\n/*Styling for all buttons*/\r\n.btn{\r\n    background-color:initial;\r\n    font-size: smaller;\r\n    border-radius:10px;\r\n    border-style:solid;\r\n    border-color:white;\r\n    color:white;\r\n    margin-top:-3px;\r\n}\r\n\r\n/*Styling for button press and hover*/\r\n.btn:focus,\r\n.btn:active:focus,\r\n.btn.active:focus,\r\n.btn.focus,\r\n.btn:active.focus,\r\n.btn.active.focus {\r\n    outline: none;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n}\r\n\r\n/*Stying for form group: search bar, drop down, search button*/\r\n#form-group{\r\n    z-index:1!important;\r\n    top:45%;\r\n    left:33%;\r\n    position:absolute;\r\n}\r\n\r\n/*Styling for search bar*/\r\ninput{\r\n    width:350px;\r\n    border-radius:5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n}\r\n\r\n/*Styling for drop-down menu - focused button*/\r\n#dropdown{\r\n    border-radius: 5px;\r\n    border-style:none;\r\n    height:35px;\r\n    font-size:medium;\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n    margin-top:-3px;\r\n}\r\n\r\n/*Styling for dropdown menu items*/\r\n.dropdown-menu{\r\n    background-color:#eaeaea;\r\n    color:#727272;\r\n    font-size:medium;\r\n    border-radius:5px;\r\n    border-style:none;\r\n}\r\n\r\n\r\n\r\n/*Styling for search button focus*/\r\ninput:focus{\r\n    outline:none;\r\n}\r\n\r\n/*Styling for quicksearch links*/\r\n#quick-search-group{\r\n    top:55%;\r\n    left:29%;\r\n    position:absolute;\r\n}\r\n\r\n#logo{\r\n    top:23%;\r\n    left:42%;\r\n    position:absolute;\r\n}\r\n\r\n/*Styling for links*/\r\n#link-style{\r\n    color:#eaeaea;\r\n    font-size: large;\r\n    padding-left:50px;\r\n}\r\n\r\n\r\n\r\n", ""]);
+	exports.push([module.id, "/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 	
 	// exports
 
 
 /***/ }),
-/* 454 */
+/* 455 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -42101,7 +42116,7 @@
 
 
 /***/ }),
-/* 455 */
+/* 456 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -42356,10 +42371,10 @@
 
 
 /***/ }),
-/* 456 */
-/*!***********************************!*\
-  !*** ./build/BottomContainer.jsx ***!
-  \***********************************/
+/* 457 */
+/*!*******************************************!*\
+  !*** ./build/Header/LoginButtonGroup.jsx ***!
+  \*******************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42375,6 +42390,475 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 184);
+	
+	__webpack_require__(/*! ../../styles/button-styles.css */ 458);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LoginButtonGroup = function (_React$Component) {
+	    _inherits(LoginButtonGroup, _React$Component);
+	
+	    function LoginButtonGroup() {
+	        _classCallCheck(this, LoginButtonGroup);
+	
+	        return _possibleConstructorReturn(this, (LoginButtonGroup.__proto__ || Object.getPrototypeOf(LoginButtonGroup)).apply(this, arguments));
+	    }
+	
+	    _createClass(LoginButtonGroup, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'btn-group' },
+	                _react2.default.createElement(
+	                    _reactBootstrap.Button,
+	                    null,
+	                    'Login'
+	                ),
+	                " ",
+	                _react2.default.createElement(
+	                    _reactBootstrap.Button,
+	                    null,
+	                    'Sign Up'
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return LoginButtonGroup;
+	}(_react2.default.Component);
+	
+	exports.default = LoginButtonGroup;
+	
+	/* You can also use props.message and have props as a param in the ({message, children})
+	, but this is much cleaner */
+
+/***/ }),
+/* 458 */
+/*!**********************************!*\
+  !*** ./styles/button-styles.css ***!
+  \**********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./button-styles.css */ 459);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./button-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./button-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 459 */
+/*!*************************************************!*\
+  !*** ./~/css-loader!./styles/button-styles.css ***!
+  \*************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*Styling for login button group*/\n#btn-group{\n    z-index:1!important;\n    top:5%;\n    left:75%;\n    position: absolute;\n}\n\n/*Styling for all buttons*/\n.btn{\n    background-color:initial;\n    font-size: smaller;\n    border-radius:10px;\n    border-style:solid;\n    border-color:white;\n    color:white;\n    margin-top:-3px;\n}\n\n/*Styling for button press and hover*/\n.btn:focus,\n.btn:active:focus,\n.btn.active:focus,\n.btn.focus,\n.btn:active.focus,\n.btn.active.focus {\n    outline: none;\n    background-color:#eaeaea;\n    color:#727272;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 460 */
+/*!******************************************!*\
+  !*** ./build/Header/SearchFormGroup.jsx ***!
+  \******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 184);
+	
+	__webpack_require__(/*! ../../styles/dropdown-styles.css */ 461);
+	
+	__webpack_require__(/*! ../../styles/searchbar-styles.css */ 463);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SearchFormGroup = function (_React$Component) {
+	    _inherits(SearchFormGroup, _React$Component);
+	
+	    function SearchFormGroup() {
+	        _classCallCheck(this, SearchFormGroup);
+	
+	        return _possibleConstructorReturn(this, (SearchFormGroup.__proto__ || Object.getPrototypeOf(SearchFormGroup)).apply(this, arguments));
+	    }
+	
+	    _createClass(SearchFormGroup, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'form-group' },
+	                _react2.default.createElement('input', { type: 'text', placeholder: '  Search' }),
+	                _react2.default.createElement(
+	                    _reactBootstrap.DropdownButton,
+	                    { title: 'Filter By', id: 'dropdown' },
+	                    _react2.default.createElement(
+	                        _reactBootstrap.MenuItem,
+	                        { eventKey: '1' },
+	                        'No Filter'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.MenuItem,
+	                        { eventKey: '1' },
+	                        'Artists'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.MenuItem,
+	                        { eventKey: '2' },
+	                        'Subjects'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.MenuItem,
+	                        { eventKey: '3' },
+	                        'Recently Added'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Button,
+	                    { bsSize: 'large' },
+	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'search' })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return SearchFormGroup;
+	}(_react2.default.Component);
+	
+	exports.default = SearchFormGroup;
+	
+	/* You can also use props.message and have props as a param in the ({message, children})
+	, but this is much cleaner */
+
+/***/ }),
+/* 461 */
+/*!************************************!*\
+  !*** ./styles/dropdown-styles.css ***!
+  \************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./dropdown-styles.css */ 462);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./dropdown-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./dropdown-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 462 */
+/*!***************************************************!*\
+  !*** ./~/css-loader!./styles/dropdown-styles.css ***!
+  \***************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*Styling for drop-down menu - focused button*/\n#dropdown{\n    border-radius: 5px;\n    border-style:none;\n    height:35px;\n    font-size:medium;\n    background-color:#eaeaea;\n    color:#727272;\n    margin-top:-3px;\n}\n\n/*Styling for dropdown menu items*/\n.dropdown-menu{\n    background-color:#eaeaea;\n    color:#727272;\n    font-size:medium;\n    border-radius:5px;\n    border-style:none;\n}", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 463 */
+/*!*************************************!*\
+  !*** ./styles/searchbar-styles.css ***!
+  \*************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./searchbar-styles.css */ 464);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./searchbar-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./searchbar-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 464 */
+/*!****************************************************!*\
+  !*** ./~/css-loader!./styles/searchbar-styles.css ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*Stying for form group: search bar, drop down, search button*/\n#form-group{\n    z-index:1!important;\n    top:45%;\n    left:33%;\n    position:absolute;\n}\n\n/*Styling for search bar*/\ninput{\n    width:350px;\n    border-radius:5px;\n    border-style:none;\n    height:35px;\n    font-size:medium;\n    background-color:#eaeaea;\n}\n\n/*Styling for search button focus*/\ninput:focus{\n    outline:none;\n}", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 465 */
+/*!*******************************************!*\
+  !*** ./build/Header/QuickSearchGroup.jsx ***!
+  \*******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 184);
+	
+	__webpack_require__(/*! ../../styles/link-styles.css */ 466);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var QuickSearchGroup = function (_React$Component) {
+	    _inherits(QuickSearchGroup, _React$Component);
+	
+	    function QuickSearchGroup() {
+	        _classCallCheck(this, QuickSearchGroup);
+	
+	        return _possibleConstructorReturn(this, (QuickSearchGroup.__proto__ || Object.getPrototypeOf(QuickSearchGroup)).apply(this, arguments));
+	    }
+	
+	    _createClass(QuickSearchGroup, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'quick-search-group' },
+	                _react2.default.createElement(
+	                    'li',
+	                    { 'class': 'quick-search-links' },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { id: 'link-style', href: './build/MainPage.jsx' },
+	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'user' }),
+	                        ' Artists'
+	                    ),
+	                    _react2.default.createElement(
+	                        'a',
+	                        { id: 'link-style', href: './build/MainPage.jsx' },
+	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'picture' }),
+	                        ' Subjects'
+	                    ),
+	                    _react2.default.createElement(
+	                        'a',
+	                        { id: 'link-style', href: './build/MainPage.jsx' },
+	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'calendar' }),
+	                        ' Recently Added'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return QuickSearchGroup;
+	}(_react2.default.Component);
+	
+	exports.default = QuickSearchGroup;
+	
+	/* You can also use props.message and have props as a param in the ({message, children})
+	, but this is much cleaner */
+
+/***/ }),
+/* 466 */
+/*!********************************!*\
+  !*** ./styles/link-styles.css ***!
+  \********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./link-styles.css */ 467);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./link-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./link-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 467 */
+/*!***********************************************!*\
+  !*** ./~/css-loader!./styles/link-styles.css ***!
+  \***********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*Styling for quicksearch links*/\n#quick-search-group{\n    top:55%;\n    left:29%;\n    position:absolute;\n}\n\n/*Styling for links*/\n#link-style{\n    color:#eaeaea;\n    font-size: large;\n    padding-left:50px;\n}", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 468 */
+/*!*****************************************!*\
+  !*** ./styles/top-container-styles.css ***!
+  \*****************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./top-container-styles.css */ 469);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./top-container-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./top-container-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 469 */
+/*!********************************************************!*\
+  !*** ./~/css-loader!./styles/top-container-styles.css ***!
+  \********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*Styling for top container*/\n#top-container{\n    position:relative;\n    width: 100%;\n    height:20%;\n}\n\n#logo{\n    top:23%;\n    left:42%;\n    position:absolute;\n}", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 470 */
+/*!****************************************!*\
+  !*** ./build/Body/BottomContainer.jsx ***!
+  \****************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(/*! ../../styles/content-grid-styles.css */ 471);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42394,16 +42878,53 @@
 	    }
 	
 	    _createClass(BottomContainer, [{
+	        key: 'createImages',
+	
+	
+	        // Creates images to display on grid
+	        value: function createImages() {
+	
+	            var imageType = 'image';
+	            var imageWidth = 225;
+	            var imageHeight = 225;
+	            var imageStyleId = 'grid-item';
+	            var imageSrcs = ['../../assets/squareGreenLogo.png', '../../assets/squareMagentaLogo.png', '../../assets/squareOrangeLogo.png'];
+	            var numberOfItemsToDisplay = 50;
+	            var descriptionString = 'Title: The Title\nArtist: Artist\nPrice: $130.00';
+	
+	            var x = 0;
+	            var gridItems = [];
+	
+	            for (var i = 0; i < numberOfItemsToDisplay; i++) {
+	                gridItems.push(_react2.default.createElement(
+	                    'div',
+	                    { id: 'item-container' },
+	                    _react2.default.createElement('img', { id: imageType, src: imageSrcs[x], width: imageWidth, height: imageHeight }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'overlay' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'text' },
+	                            descriptionString
+	                        )
+	                    )
+	                ));
+	                if (x >= 2) x = 0;else x = x + 1;
+	            }
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                gridItems
+	            );
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    'This will be a listing of available art'
-	                )
+	                { id: 'grid' },
+	                this.createImages()
 	            );
 	        }
 	    }]);
@@ -42415,6 +42936,52 @@
 	
 	/* You can also use props.message and have props as a param in the ({message, children})
 	, but this is much cleaner */
+
+/***/ }),
+/* 471 */
+/*!****************************************!*\
+  !*** ./styles/content-grid-styles.css ***!
+  \****************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./content-grid-styles.css */ 472);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./content-grid-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./content-grid-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 472 */
+/*!*******************************************************!*\
+  !*** ./~/css-loader!./styles/content-grid-styles.css ***!
+  \*******************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n#grid{\n    padding:50px;\n}\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.4;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    white-space: pre;\n    color: white;\n    font-size: 20px;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
+	
+	// exports
+
 
 /***/ })
 /******/ ]);
