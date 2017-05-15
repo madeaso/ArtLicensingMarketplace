@@ -1,7 +1,12 @@
 
-#grid{
+#grid-container{
     padding:50px;
 }
+
+#grid{
+    text-align:center;
+}
+
 #item-container {
     position: relative;
     margin: 10px;

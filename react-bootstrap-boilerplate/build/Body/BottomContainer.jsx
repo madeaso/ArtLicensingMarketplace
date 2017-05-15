@@ -31,12 +31,12 @@ class BottomContainer extends React.Component {
             else
                 x = x+1;
         }
-        return(<div>{gridItems}</div>);
+        return(<div id="grid">{gridItems}</div>);
     }
 
     render(){
         return(
-            <div id="grid">
+            <div id="grid-container">
                 {this.createImages()}
             </div>
 
