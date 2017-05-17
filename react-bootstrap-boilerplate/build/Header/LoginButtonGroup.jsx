@@ -3,6 +3,7 @@ import {Button} from 'react-bootstrap';
 import '../../styles/button-styles.css';
 
 class LoginButtonGroup extends React.Component{
+
     render(){
         return(
             <div id="btn-group">

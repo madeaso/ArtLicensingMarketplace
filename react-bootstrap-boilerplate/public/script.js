@@ -22482,18 +22482,22 @@
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { id: 'logo' },
-	                    _react2.default.createElement('img', { height: '90', width: '250', src: '../../assets/whitelogo.png' })
-	                ),
-	                _react2.default.createElement(
-	                    _SearchFormGroup2.default,
-	                    null,
-	                    this.props.children
-	                ),
-	                _react2.default.createElement(
-	                    _QuickSearchGroup2.default,
-	                    null,
-	                    this.props.children
+	                    { id: 'search-container' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'logo' },
+	                        _react2.default.createElement('img', { height: '90', width: '250', src: '../../assets/whitelogo.png' })
+	                    ),
+	                    _react2.default.createElement(
+	                        _SearchFormGroup2.default,
+	                        null,
+	                        this.props.children
+	                    ),
+	                    _react2.default.createElement(
+	                        _QuickSearchGroup2.default,
+	                        null,
+	                        this.props.children
+	                    )
 	                )
 	            );
 	        }
@@ -42658,7 +42662,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*Stying for form group: search bar, drop down, search button*/\n#form-group{\n    z-index:1!important;\n    top:45%;\n    left:33%;\n    position:absolute;\n}\n\n/*Styling for search bar*/\ninput{\n    width:350px;\n    border-radius:5px;\n    border-style:none;\n    height:35px;\n    font-size:medium;\n    background-color:#eaeaea;\n}\n\n/*Styling for search button focus*/\ninput:focus{\n    outline:none;\n}", ""]);
+	exports.push([module.id, "/*Stying for form group: search bar, drop down, search button*/\n#form-group{\n    text-align:center;\n}\n\n/*Styling for search bar*/\ninput{\n    width:350px;\n    border-radius:5px;\n    border-style:none;\n    height:35px;\n    font-size:medium;\n    background-color:#eaeaea;\n}\n\n/*Styling for search button focus*/\ninput:focus{\n    outline:none;\n}", ""]);
 	
 	// exports
 
@@ -42710,26 +42714,22 @@
 	                'div',
 	                { id: 'quick-search-group' },
 	                _react2.default.createElement(
-	                    'li',
-	                    { 'class': 'quick-search-links' },
-	                    _react2.default.createElement(
-	                        'a',
-	                        { id: 'link-style', href: './build/MainPage.jsx' },
-	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'user' }),
-	                        ' Artists'
-	                    ),
-	                    _react2.default.createElement(
-	                        'a',
-	                        { id: 'link-style', href: './build/MainPage.jsx' },
-	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'picture' }),
-	                        ' Subjects'
-	                    ),
-	                    _react2.default.createElement(
-	                        'a',
-	                        { id: 'link-style', href: './build/MainPage.jsx' },
-	                        _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'calendar' }),
-	                        ' Recently Added'
-	                    )
+	                    'a',
+	                    { id: 'link-style', href: './build/MainPage.jsx' },
+	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'user' }),
+	                    ' Artists'
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { id: 'link-style', href: './build/MainPage.jsx' },
+	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'picture' }),
+	                    ' Subjects'
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { id: 'link-style', href: './build/MainPage.jsx' },
+	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'calendar' }),
+	                    ' Recently Added'
 	                )
 	            );
 	        }
@@ -42784,7 +42784,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*Styling for quicksearch links*/\n#quick-search-group{\n    top:55%;\n    left:29%;\n    position:absolute;\n}\n\n/*Styling for links*/\n#link-style{\n    color:#eaeaea;\n    font-size: large;\n    padding-left:50px;\n}", ""]);
+	exports.push([module.id, "/*Styling for quicksearch links*/\n#quick-search-group{\n    text-align:center;\n    padding-top:10px;\n    padding-right:71px;\n}\n\n/*Styling for links*/\n#link-style{\n    color:#eaeaea;\n    font-size: large;\n    padding-left:50px;\n}", ""]);
 	
 	// exports
 
@@ -42830,7 +42830,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*Styling for top container*/\n#top-container{\n    position:relative;\n    width: 100%;\n    height:20%;\n}\n\n#logo{\n    top:23%;\n    left:42%;\n    position:absolute;\n}", ""]);
+	exports.push([module.id, "/*Styling for top container*/\n#top-container{\n    position:relative;\n    width: 100%;\n    height:20%;\n}\n\n#logo{\n    text-align:center;\n    padding-top: 100px;\n}\n\n#search-container{\n    text-align:center;\n    width:100%;\n    height:100%;\n    top:0%;\n    left:0%;\n    position:absolute;;\n}", ""]);
 	
 	// exports
 

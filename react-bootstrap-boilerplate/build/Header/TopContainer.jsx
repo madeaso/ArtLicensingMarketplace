@@ -11,11 +11,13 @@ class TopContainer extends React.Component{
             <div id="top-container">
                 <CustomCarousel>{this.props.children}</CustomCarousel>
                 <LoginButtonGroup>{this.props.children}</LoginButtonGroup>
-                <div id="logo">
-                    <img height="90" width="250"src="../../assets/whitelogo.png"/>
+                <div id="search-container">
+                    <div id="logo">
+                        <img height="90" width="250"src="../../assets/whitelogo.png"/>
+                    </div>
+                    <SearchFormGroup>{this.props.children}</SearchFormGroup>
+                    <QuickSearchGroup>{this.props.children}</QuickSearchGroup>
                 </div>
-                <SearchFormGroup>{this.props.children}</SearchFormGroup>
-                <QuickSearchGroup>{this.props.children}</QuickSearchGroup>
             </div>
         );
     }

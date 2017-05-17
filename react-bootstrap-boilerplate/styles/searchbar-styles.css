@@ -1,9 +1,6 @@
 /*Stying for form group: search bar, drop down, search button*/
 #form-group{
-    z-index:1!important;
-    top:45%;
-    left:33%;
-    position:absolute;
+    text-align:center;
 }
 
 /*Styling for search bar*/
