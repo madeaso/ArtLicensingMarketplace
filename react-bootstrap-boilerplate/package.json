@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "start": "webpack-dev-server",
-    "build" : "webpack --display-error-details -d"
+    "build": "webpack --display-error-details -d"
   },
   "author": "",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "css-loader": "^0.23.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
     "react": "^15.0.0-rc.2",

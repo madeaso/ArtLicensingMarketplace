@@ -1,6 +1,7 @@
 
 #grid-container{
     padding:50px;
+    min-width: 1000px;
 }
 
 #grid{
