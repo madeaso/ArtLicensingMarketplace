@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import '../../styles/button-styles.css';
-import * as LoginRoutes from "../Routes/LoginRoutes";
 
 class LoginButtonGroup extends React.Component{
 
@@ -25,7 +24,7 @@ class LoginButtonGroup extends React.Component{
                         <form>
                             <input ref="loginemail" type="text" placeholder="Email"/>
                             <input ref="loginpassword" type="text" placeholder="Password"/>
-                            <Button onClick={() => this.login()}>Submit</Button>
+                            <Button onClick="">Submit</Button>
                         </form>
                     </div>
                     <p><Button onClick={() => this.toggleModal()}>Close</Button></p>
@@ -41,12 +40,12 @@ class LoginButtonGroup extends React.Component{
         });
     }
 
-    login() {
-        var user = {email: this.refs.loginemail.value, password: this.refs.loginpassword.value};
-        var res;
-        LoginRoutes.login(user, res);
-
-    }
+    // login() {
+    //     var user = {email: this.refs.loginemail.value, password: this.refs.loginpassword.value};
+    //     var res;
+    //     LoginRoutes.login(user, res);
+    //
+    // }
 }
 
 
