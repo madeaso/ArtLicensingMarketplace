@@ -42053,7 +42053,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*Size of carousel - take up 100% page width and 25% page height*/\r\n.carousel{\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n    background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    margin: 0 auto;\r\n    background-size: cover;\r\n    width: 100%; /* set width to \"auto\" to correctly scale picture*/\r\n    height: 450px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+	exports.push([module.id, ".carousel{\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n\r\n    /*background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;*/\r\n\r\n    background-size: cover;\r\n    width: 100%;\r\n    height: 550px;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    /*margin: 0 auto;*/\r\n    background-size: cover;\r\n    width: 100%;\r\n    /*height: 450px;*/\r\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 	
 	// exports
 
@@ -42830,7 +42830,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*Styling for top container*/\n#top-container{\n    position:relative;\n    width: 100%;\n    height:20%;\n}\n\n#logo{\n    text-align:center;\n    padding-top: 100px;\n}\n\n#search-container{\n    text-align:center;\n    width:100%;\n    height:100%;\n    top:0%;\n    left:0%;\n    position:absolute;;\n}", ""]);
+	exports.push([module.id, "/*Styling for top container*/\n#top-container{\n    position:relative;\n    width: 100%;\n    height:20%;\n    min-width: 1000px;\n}\n\n#logo{\n    text-align:center;\n    padding-top: 160px;\n}\n\n#search-container{\n    text-align:center;\n    width:100%;\n    height:100%;\n    top:0%;\n    left:0%;\n    position:absolute;;\n}", ""]);
 	
 	// exports
 
@@ -42974,7 +42974,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n#grid-container{\n    padding:50px;\n}\n\n#grid{\n    text-align:center;\n}\n\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.4;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    white-space: pre;\n    color: white;\n    font-size: small;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 25%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
+	exports.push([module.id, "\n#grid-container{\n    padding:50px;\n    min-width: 1000px;\n}\n\n#grid{\n    text-align:center;\n}\n\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.4;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    white-space: pre;\n    color: white;\n    font-size: small;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 25%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
 	
 	// exports
 

@@ -3,11 +3,12 @@
     position:relative;
     width: 100%;
     height:20%;
+    min-width: 1000px;
 }
 
 #logo{
     text-align:center;
-    padding-top: 100px;
+    padding-top: 160px;
 }
 
 #search-container{

@@ -1,4 +1,3 @@
-/*Size of carousel - take up 100% page width and 25% page height*/
 .carousel{
     width: 100%;
     height: 100%;
@@ -11,18 +10,23 @@
     z-index: 0;
 }
 .item{
-    background-size: cover;
+
+    /*background-size: cover;
     background-position: 50% 50%;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 0;*/
+
+    background-size: cover;
+    width: 100%;
+    height: 550px;
 }
 /*Centers image in carousel-inner*/
 .carousel-inner > .item > img{
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     background-size: cover;
-    width: 100%; /* set width to "auto" to correctly scale picture*/
-    height: 450px;
+    width: 100%;
+    /*height: 450px;*/
 }
 
 
