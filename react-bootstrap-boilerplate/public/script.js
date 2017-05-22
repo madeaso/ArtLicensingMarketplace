@@ -42856,6 +42856,14 @@
 	
 	__webpack_require__(/*! ../../styles/content-grid-styles.css */ 471);
 	
+	__webpack_require__(/*! ../../styles/modal-styles.css */ 473);
+	
+	var _PurchaseModal = __webpack_require__(/*! ./PurchaseModal */ 475);
+	
+	var _PurchaseModal2 = _interopRequireDefault(_PurchaseModal);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 185);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42870,14 +42878,36 @@
 	    function BottomContainer() {
 	        _classCallCheck(this, BottomContainer);
 	
-	        return _possibleConstructorReturn(this, (BottomContainer.__proto__ || Object.getPrototypeOf(BottomContainer)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (BottomContainer.__proto__ || Object.getPrototypeOf(BottomContainer)).call(this));
+	
+	        _this.state = {
+	            showModal: false
+	        };
+	        _this.close = _this.close.bind(_this);
+	        _this.open = _this.open.bind(_this);
+	        return _this;
 	    }
 	
 	    _createClass(BottomContainer, [{
-	        key: 'createImages',
-	
+	        key: 'getInitialState',
+	        value: function getInitialState() {
+	            return { showModal: false };
+	        }
+	    }, {
+	        key: 'close',
+	        value: function close() {
+	            this.setState({ showModal: false });
+	        }
+	    }, {
+	        key: 'open',
+	        value: function open(imgToView, descString) {
+	            this.setState({ showModal: true });
+	        }
 	
 	        // Creates images to display on grid
+	
+	    }, {
+	        key: 'createImages',
 	        value: function createImages() {
 	
 	            var imageType = 'image';
@@ -42898,7 +42928,7 @@
 	                    _react2.default.createElement('img', { id: imageType, src: imageSrcs[x], width: imageWidth, height: imageHeight }),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { id: 'overlay' },
+	                        { id: 'overlay', onClick: this.open },
 	                        _react2.default.createElement(
 	                            'div',
 	                            { id: 'text' },
@@ -42920,7 +42950,20 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'grid-container' },
-	                this.createImages()
+	                this.createImages(),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Modal,
+	                    { show: this.state.showModal, onHide: this.close },
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Modal.Body,
+	                        null,
+	                        _react2.default.createElement(
+	                            _reactBootstrap.Button,
+	                            null,
+	                            'Purchase'
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);
@@ -42978,6 +43021,117 @@
 	
 	// exports
 
+
+/***/ }),
+/* 473 */
+/*!*********************************!*\
+  !*** ./styles/modal-styles.css ***!
+  \*********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../~/css-loader!./modal-styles.css */ 474);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 456)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./modal-styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./modal-styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 474 */
+/*!************************************************!*\
+  !*** ./~/css-loader!./styles/modal-styles.css ***!
+  \************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 455)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.modal-dialog{\n    background: #343434;\n    border-radius: 10px;\n    width: 80%;\n    height: 80%;\n}\n.modal-body{\n    background: #343434;\n}\n\n.modal-content{\n    background: #343434;\n    border-radius: 10px;\n    width: 100%;\n    height: 100%;\n}", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 475 */
+/*!**************************************!*\
+  !*** ./build/Body/PurchaseModal.jsx ***!
+  \**************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 185);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PurchaseModal = function (_React$Component) {
+	    _inherits(PurchaseModal, _React$Component);
+	
+	    function PurchaseModal() {
+	        _classCallCheck(this, PurchaseModal);
+	
+	        return _possibleConstructorReturn(this, (PurchaseModal.__proto__ || Object.getPrototypeOf(PurchaseModal)).apply(this, arguments));
+	    }
+	
+	    _createClass(PurchaseModal, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _reactBootstrap.Modal.Dialog,
+	                null,
+	                _react2.default.createElement(
+	                    _reactBootstrap.Modal.Body,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Button,
+	                        null,
+	                        'Purchase'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return PurchaseModal;
+	}(_react2.default.Component);
+	
+	exports.default = PurchaseModal;
+	
+	/* You can also use props.message and have props as a param in the ({message, children})
+	, but this is much cleaner */
 
 /***/ })
 /******/ ]);

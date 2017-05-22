@@ -1,7 +1,30 @@
 import React from 'react';
 import '../../styles/content-grid-styles.css';
+import '../../styles/modal-styles.css';
+import PurchaseModal from "./PurchaseModal";
+import {Modal,Button} from 'react-bootstrap';
 
 class BottomContainer extends React.Component {
+
+    constructor(){
+        super();
+        this.state={
+            showModal:false
+        }
+        this.close = this.close.bind(this);
+        this.open = this.open.bind(this);
+    }
+    getInitialState(){
+        return {showModal:false};
+    }
+
+    close(){
+        this.setState({showModal:false});
+    }
+
+    open(imgToView,descString){
+        this.setState({showModal:true});
+    }
 
     // Creates images to display on grid
     createImages(){
@@ -21,7 +44,7 @@ class BottomContainer extends React.Component {
             gridItems.push(
                 <div id="item-container">
                     <img id={imageType} src={imageSrcs[x]} width={imageWidth} height={imageHeight} />
-                    <div id="overlay">
+                    <div id="overlay" onClick={this.open}>
                         <div id="text">{descriptionString}</div>
                     </div>
                 </div>
@@ -38,6 +61,11 @@ class BottomContainer extends React.Component {
         return(
             <div id="grid-container">
                 {this.createImages()}
+                <Modal show={this.state.showModal} onHide={this.close}>
+                    <Modal.Body>
+                        <Button>Purchase</Button>
+                    </Modal.Body>
+                </Modal>
             </div>
 
         );
