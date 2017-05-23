@@ -1,17 +1,43 @@
 
 .modal-dialog{
-    background: #343434;
-    border-radius: 10px;
-    width: 80%;
-    height: 80%;
+    background: transparent;
+    width: 100%;
+    height: 100%;
 }
 .modal-body{
-    background: #343434;
+    background: transparent;
+    display: inline-block;
 }
 
 .modal-content{
-    background: #343434;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
+    background: transparent;
+    -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px rgba(0, 0, 0, 0);
+    border:none;
+    padding-left:60px;
+    text-align: center;
+}
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .8;
+}
+
+#modal-body{
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+}
+#modal-img{
+    background: transparent;
+    max-width: 50%;
+    max-height: 50%;
+
+}
+
+#modal-content{
+    color:white;
+    background: transparent;
+    display: inline-block;
+    margin: 20px;
+    text-align: left;
 }

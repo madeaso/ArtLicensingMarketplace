@@ -42872,6 +42872,15 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	//const imageType = 'image';
+	var imageWidth = 225;
+	var imageHeight = 225;
+	var imageSrcs = ['../../assets/Kian Khiaban/11.jpg', '../../assets/Kian Khiaban/12.jpg', '../../assets/Kian Khiaban/Ego.jpg', '../../assets/Kian Khiaban/Flipped.png', '../../assets/Kian Khiaban/Frailty.png', '../../assets/Kian Khiaban/From A Distance.png', '../../assets/Kian Khiaban/Half+&+Half.png', '../../assets/Kian Khiaban/Material Studies.png', '../../assets/Kian Khiaban/Re-Balance.png', '../../assets/Kian Khiaban/StreetDance.png'];
+	//const imageSrcs=['../../assets/squareGreenLogo.png','../../assets/squareMagentaLogo.png',
+	//                 '../../assets/squareOrangeLogo.png'];
+	var descriptionString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ' + 'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ' + 'laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in ' + 'voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
+	var grid;
+	
 	var BottomContainer = function (_React$Component) {
 	    _inherits(BottomContainer, _React$Component);
 	
@@ -42881,17 +42890,66 @@
 	        var _this = _possibleConstructorReturn(this, (BottomContainer.__proto__ || Object.getPrototypeOf(BottomContainer)).call(this));
 	
 	        _this.state = {
-	            showModal: false
+	            showModal: false,
+	            image: '',
+	            title: '',
+	            artist: '',
+	            description: '',
+	            price: '$130.00'
 	        };
 	        _this.close = _this.close.bind(_this);
-	        _this.open = _this.open.bind(_this);
+	        //this.open = this.open.bind(this);
 	        return _this;
 	    }
 	
 	    _createClass(BottomContainer, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            var gridItems = [];
+	            var artist;
+	            var title;
+	
+	            for (var i = 0; i < imageSrcs.length; i++) {
+	
+	                // Extract artist name and work title from file path
+	                var titleAr = imageSrcs[i].split('/');
+	                artist = titleAr[3];
+	                var titleNoExt = titleAr[4].split('.');
+	                title = titleNoExt[0];
+	
+	                // Create overlay text
+	                var overlayText = 'Title: ' + title + '\n' + 'Artist: ' + artist + '\n' + 'Price: ' + this.state.price;
+	
+	                gridItems.push(_react2.default.createElement(
+	                    'div',
+	                    { id: 'item-container' },
+	                    _react2.default.createElement('img', { src: imageSrcs[i], width: imageWidth, height: imageHeight }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'overlay', key: imageSrcs[i], onClick: this.open.bind(this, imageSrcs[i], artist, title, descriptionString, this.state.price) },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'text' },
+	                            overlayText
+	                        )
+	                    )
+	                ));
+	            }
+	            grid = _react2.default.createElement(
+	                'div',
+	                { id: 'grid' },
+	                gridItems
+	            );
+	        }
+	    }, {
 	        key: 'getInitialState',
 	        value: function getInitialState() {
 	            return { showModal: false };
+	        }
+	    }, {
+	        key: 'open',
+	        value: function open(img, artist, title, desc, e) {
+	            this.setState({ showModal: true, image: img, artist: artist, title: title, description: desc });
 	        }
 	    }, {
 	        key: 'close',
@@ -42899,71 +42957,18 @@
 	            this.setState({ showModal: false });
 	        }
 	    }, {
-	        key: 'open',
-	        value: function open(imgToView, descString) {
-	            this.setState({ showModal: true });
-	        }
-	
-	        // Creates images to display on grid
-	
-	    }, {
-	        key: 'createImages',
-	        value: function createImages() {
-	
-	            var imageType = 'image';
-	            var imageWidth = 225;
-	            var imageHeight = 225;
-	            var imageStyleId = 'grid-item';
-	            var imageSrcs = ['../../assets/squareGreenLogo.png', '../../assets/squareMagentaLogo.png', '../../assets/squareOrangeLogo.png'];
-	            var numberOfItemsToDisplay = 50;
-	            var descriptionString = 'Title: The Title\nArtist: Artist\nPrice: $130.00';
-	
-	            var x = 0;
-	            var gridItems = [];
-	
-	            for (var i = 0; i < numberOfItemsToDisplay; i++) {
-	                gridItems.push(_react2.default.createElement(
-	                    'div',
-	                    { id: 'item-container' },
-	                    _react2.default.createElement('img', { id: imageType, src: imageSrcs[x], width: imageWidth, height: imageHeight }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { id: 'overlay', onClick: this.open },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { id: 'text' },
-	                            descriptionString
-	                        )
-	                    )
-	                ));
-	                if (x >= 2) x = 0;else x = x + 1;
-	            }
-	            return _react2.default.createElement(
-	                'div',
-	                { id: 'grid' },
-	                gridItems
-	            );
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'grid-container' },
-	                this.createImages(),
-	                _react2.default.createElement(
-	                    _reactBootstrap.Modal,
-	                    { show: this.state.showModal, onHide: this.close },
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Modal.Body,
-	                        null,
-	                        _react2.default.createElement(
-	                            _reactBootstrap.Button,
-	                            null,
-	                            'Purchase'
-	                        )
-	                    )
-	                )
+	                grid,
+	                _react2.default.createElement(_PurchaseModal2.default, { showModal: this.state.showModal, onHide: function onHide() {
+	                        return _this2.close();
+	                    }, image: this.state.image,
+	                    title: this.state.title, artist: this.state.artist, description: this.state.description, price: this.state.price })
 	            );
 	        }
 	    }]);
@@ -42975,6 +42980,14 @@
 	
 	/* You can also use props.message and have props as a param in the ({message, children})
 	, but this is much cleaner */
+	
+	/*
+	 <Modal show={this.state.showModal} onHide={this.close}>
+	 <Modal.Body>
+	 <Button>Purchase</Button>
+	 </Modal.Body>
+	 </Modal>
+	 */
 
 /***/ }),
 /* 471 */
@@ -43017,7 +43030,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n#grid-container{\n    padding:50px;\n    min-width: 1000px;\n}\n\n#grid{\n    text-align:center;\n}\n\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.4;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    white-space: pre;\n    color: white;\n    font-size: small;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 25%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
+	exports.push([module.id, "\n#grid-container{\n    padding:50px;\n    min-width: 1000px;\n}\n\n#grid{\n    text-align:center;\n}\n\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.75;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    text-align: left;\n    white-space: pre;\n    color: white;\n    font-size: small;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
 	
 	// exports
 
@@ -43063,7 +43076,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.modal-dialog{\n    background: #343434;\n    border-radius: 10px;\n    width: 80%;\n    height: 80%;\n}\n.modal-body{\n    background: #343434;\n}\n\n.modal-content{\n    background: #343434;\n    border-radius: 10px;\n    width: 100%;\n    height: 100%;\n}", ""]);
+	exports.push([module.id, "\n.modal-dialog{\n    background: transparent;\n    width: 100%;\n    height: 100%;\n}\n.modal-body{\n    background: transparent;\n    display: inline-block;\n}\n\n.modal-content{\n    background: transparent;\n    -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0);\n    box-shadow: 0px 0px rgba(0, 0, 0, 0);\n    border:none;\n    padding-left:60px;\n    text-align: center;\n}\n.modal-backdrop.in {\n    filter: alpha(opacity=50);\n    opacity: .8;\n}\n\n#modal-body{\n    margin: 0 auto;\n    width: 80%;\n    height: 80%;\n}\n#modal-img{\n    background: transparent;\n    max-width: 50%;\n    max-height: 50%;\n\n}\n\n#modal-content{\n    color:white;\n    background: transparent;\n    display: inline-block;\n    margin: 20px;\n    text-align: left;\n}", ""]);
 	
 	// exports
 
@@ -43089,6 +43102,8 @@
 	
 	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 185);
 	
+	__webpack_require__(/*! ../../styles/modal-styles.css */ 473);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43109,16 +43124,56 @@
 	    _createClass(PurchaseModal, [{
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
+	            //console.log('showModal: ' + this.props.showModal + ' image: ' + this.props.image + ' artist: ' + this.props.artist + ' title: ' + this.props.title + ' desc: ' + this.props.description);
 	            return _react2.default.createElement(
-	                _reactBootstrap.Modal.Dialog,
-	                null,
+	                _reactBootstrap.Modal,
+	                { show: this.props.showModal, onHide: function onHide() {
+	                        return _this2.props.onHide();
+	                    } },
 	                _react2.default.createElement(
 	                    _reactBootstrap.Modal.Body,
-	                    null,
+	                    { id: 'modal-body' },
+	                    _react2.default.createElement('img', { id: 'modal-img', src: this.props.image }),
 	                    _react2.default.createElement(
-	                        _reactBootstrap.Button,
-	                        null,
-	                        'Purchase'
+	                        'div',
+	                        { id: 'modal-content' },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            _react2.default.createElement(
+	                                'i',
+	                                null,
+	                                this.props.title
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            'by: ',
+	                            this.props.artist
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            this.props.price
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            _react2.default.createElement(
+	                                'b',
+	                                null,
+	                                'Description: '
+	                            ),
+	                            this.props.description
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.Button,
+	                            null,
+	                            'Purchase'
+	                        )
 	                    )
 	                )
 	            );
