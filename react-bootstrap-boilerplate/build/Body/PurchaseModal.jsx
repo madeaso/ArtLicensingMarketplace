@@ -11,7 +11,7 @@ class PurchaseModal extends React.Component {
                     <img id="modal-img" src={this.props.image}/>
                     <div id="modal-content">
                         <h4><i>{this.props.title}</i></h4>
-                        <h4>by: {this.props.artist}</h4>
+                        <h4>{this.props.artist}</h4>
                         <p>{this.props.price}</p>
                         <p><b>Description: </b>{this.props.description}</p>
                         <Button>Purchase</Button>

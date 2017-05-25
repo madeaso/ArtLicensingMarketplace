@@ -4,16 +4,8 @@ import '../../styles/modal-styles.css';
 import PurchaseModal from "./PurchaseModal";
 import {Modal,Button} from 'react-bootstrap';
 
-//const imageType = 'image';
 const imageWidth = 225;
 const imageHeight = 225;
-const imageSrcs=['../../assets/Kian Khiaban/11.jpg','../../assets/Kian Khiaban/12.jpg',
-    '../../assets/Kian Khiaban/Ego.jpg','../../assets/Kian Khiaban/Flipped.png',
-    '../../assets/Kian Khiaban/Frailty.png','../../assets/Kian Khiaban/From A Distance.png',
-    '../../assets/Kian Khiaban/Half+&+Half.png','../../assets/Kian Khiaban/Material Studies.png',
-    '../../assets/Kian Khiaban/Re-Balance.png','../../assets/Kian Khiaban/StreetDance.png'];
-//const imageSrcs=['../../assets/squareGreenLogo.png','../../assets/squareMagentaLogo.png',
-//                 '../../assets/squareOrangeLogo.png'];
 var descriptionString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ' +
                         'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ' +
                         'laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in ' +
@@ -22,8 +14,9 @@ var grid;
 
 class BottomContainer extends React.Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        console.log('HI IM IN BOTTOM CONTAINER AND THESE ARE MY FUCKING PROPS: ' + this.props.imgs);
         this.state={
             showModal:false,
             image:'',
@@ -41,21 +34,21 @@ class BottomContainer extends React.Component {
         var artist;
         var title;
 
-        for(var i = 0; i < imageSrcs.length; i++){
+        for(var i = 0; i < this.props.imgs.length; i++){
 
             // Extract artist name and work title from file path
-            var titleAr = imageSrcs[i].split('/');
+            var titleAr = this.props.imgs[i].split('/');
             artist = titleAr[3];
             var titleNoExt = titleAr[4].split('.');
             title = titleNoExt[0];
 
             // Create overlay text
-            var overlayText = 'Title: ' + title + '\n' + 'Artist: ' +  artist + '\n' + 'Price: ' + this.state.price;
+            var overlayText = title + '\n' +  artist + '\n' + this.state.price;
 
             gridItems.push(
                 <div id="item-container">
-                    <img src={imageSrcs[i]} width={imageWidth} height={imageHeight} />
-                    <div id="overlay" key={imageSrcs[i]} onClick={this.open.bind(this,imageSrcs[i],artist,title,descriptionString,this.state.price)}>
+                    <img src={this.props.imgs[i]} width={imageWidth} height={imageHeight} />
+                    <div id="overlay" key={this.props.imgs[i]} onClick={this.open.bind(this,this.props.imgs[i],artist,title,descriptionString,this.state.price)}>
                         <div id="text">{overlayText}</div>
                     </div>
                 </div>
@@ -93,11 +86,3 @@ export default BottomContainer;
 
 /* You can also use props.message and have props as a param in the ({message, children})
 , but this is much cleaner */
-
-/*
- <Modal show={this.state.showModal} onHide={this.close}>
- <Modal.Body>
- <Button>Purchase</Button>
- </Modal.Body>
- </Modal>
- */

@@ -9,14 +9,14 @@ class TopContainer extends React.Component{
     render(){
         return(
             <div id="top-container">
-                <CustomCarousel>{this.props.children}</CustomCarousel>
-                <LoginButtonGroup>{this.props.children}</LoginButtonGroup>
+                <CustomCarousel></CustomCarousel>
+                <LoginButtonGroup></LoginButtonGroup>
                 <div id="search-container">
                     <div id="logo">
                         <img height="90" width="250"src="../../assets/whitelogo.png"/>
                     </div>
-                    <SearchFormGroup>{this.props.children}</SearchFormGroup>
-                    <QuickSearchGroup>{this.props.children}</QuickSearchGroup>
+                    <SearchFormGroup filter= {this.props.filter} imgs={this.props.imgs} updateImgList={this.props.updateImgList}></SearchFormGroup>
+                    <QuickSearchGroup filter= {this.props.filter} imgs={this.props.imgs} updateImgList={this.props.updateImgList}></QuickSearchGroup>
                 </div>
             </div>
         );

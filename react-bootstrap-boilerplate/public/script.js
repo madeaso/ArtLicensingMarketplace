@@ -22379,25 +22379,28 @@
 	    function MainPage() {
 	        _classCallCheck(this, MainPage);
 	
-	        return _possibleConstructorReturn(this, (MainPage.__proto__ || Object.getPrototypeOf(MainPage)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (MainPage.__proto__ || Object.getPrototypeOf(MainPage)).call(this));
+	
+	        _this.state = {
+	            imgs: ['../../assets/Kian Khiaban/11.jpg', '../../assets/Kian Khiaban/12.jpg', '../../assets/Kian Khiaban/Ego.jpg', '../../assets/Kian Khiaban/Flipped.png', '../../assets/Kian Khiaban/Frailty.png', '../../assets/Kian Khiaban/From A Distance.png', '../../assets/Kian Khiaban/Half+&+Half.png', '../../assets/Kian Khiaban/Material Studies.png', '../../assets/Kian Khiaban/Re-Balance.png', '../../assets/Kian Khiaban/StreetDance.png', '../../assets/Anonymous/Unknown.png', '../../assets/Mark Ferrari/Cave.jpg', '../../assets/Roger Dean/Floating Jungle.jpg', '../../assets/Roger Dean/Tales from Topographic Oceans.jpg', '../../assets/Mark Ferrari/Desert Fortress - Dawn.jpg', '../../assets/Mark Ferrari/Desert Twighlight.jpg', '../../assets/Mark Ferrari/Elven Falls - Morning.jpg', '../../assets/Mark Ferrari/Fire Fly Swamp.jpg', '../../assets/Mark Ferrari/Henge.jpg', '../../assets/Mark Ferrari/Lotus Bayou.jpg', '../../assets/Mark Ferrari/Mayan City - Rain.jpg', '../../assets/Mark Ferrari/Mossy Forest.jpg', '../../assets/Mark Ferrari/Mountain Gate.jpg', '../../assets/Mark Ferrari/Mountain Gods.jpg', '../../assets/Mark Ferrari/Red Canyon.jpg', '../../assets/Mark Ferrari/Reef.jpg', '../../assets/Mark Ferrari/Ruined City.jpg', '../../assets/Mark Ferrari/Swamp Troll Cave.jpg'],
+	            filter: 'none'
+	        };
+	        return _this;
 	    }
 	
 	    _createClass(MainPage, [{
+	        key: 'updateImgList',
+	        value: function updateImgList(imgList, filterChoice) {
+	            this.setState({ imgs: imgList, filter: filterChoice });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
-	                    _TopContainer2.default,
-	                    null,
-	                    this.props.children
-	                ),
-	                _react2.default.createElement(
-	                    _BottomContainer2.default,
-	                    null,
-	                    this.props.children
-	                )
+	                _react2.default.createElement(_TopContainer2.default, { filter: this.state.filter, imgs: this.state.imgs, updateImgList: this.updateImgList }),
+	                _react2.default.createElement(_BottomContainer2.default, { filter: this.state.filter, imgs: this.state.imgs, updateImgList: this.updateImgList })
 	            );
 	        }
 	    }]);
@@ -22470,16 +22473,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'top-container' },
-	                _react2.default.createElement(
-	                    _CustomCarousel2.default,
-	                    null,
-	                    this.props.children
-	                ),
-	                _react2.default.createElement(
-	                    _LoginButtonGroup2.default,
-	                    null,
-	                    this.props.children
-	                ),
+	                _react2.default.createElement(_CustomCarousel2.default, null),
+	                _react2.default.createElement(_LoginButtonGroup2.default, null),
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'search-container' },
@@ -22491,12 +22486,22 @@
 	                    _react2.default.createElement(
 	                        _SearchFormGroup2.default,
 	                        null,
-	                        this.props.children
+	                        'filter= ',
+	                        this.props.filter,
+	                        ' imgs=',
+	                        this.props.imgs,
+	                        ' updateImgList=',
+	                        this.props.updateImgList
 	                    ),
 	                    _react2.default.createElement(
 	                        _QuickSearchGroup2.default,
 	                        null,
-	                        this.props.children
+	                        'filter= ',
+	                        this.props.filter,
+	                        ' imgs=',
+	                        this.props.imgs,
+	                        ' updateImgList=',
+	                        this.props.updateImgList
 	                    )
 	                )
 	            );
@@ -22560,57 +22565,95 @@
 	                _react2.default.createElement(
 	                    _reactBootstrap.Carousel.Item,
 	                    null,
-	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/testFeatureItem1.jpg' }),
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Kian Khiaban/11.jpg' }),
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Carousel.Caption,
 	                        null,
 	                        _react2.default.createElement(
 	                            'h4',
 	                            null,
-	                            ' Variable for Work Title 1'
+	                            ' 11 '
 	                        ),
 	                        _react2.default.createElement(
 	                            'p',
 	                            null,
-	                            'Variable for by Line 1'
+	                            'Kian Khiaban'
 	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    _reactBootstrap.Carousel.Item,
 	                    null,
-	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/testFeatureItem2.jpg' }),
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Roger Dean/Floating Jungle.jpg' }),
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Carousel.Caption,
 	                        null,
 	                        _react2.default.createElement(
 	                            'h4',
 	                            null,
-	                            ' Variable for Work Title 2'
+	                            ' Floating Jungle '
 	                        ),
 	                        _react2.default.createElement(
 	                            'p',
 	                            null,
-	                            'Variable for by Line 2'
+	                            'Roger Dean'
 	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    _reactBootstrap.Carousel.Item,
 	                    null,
-	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/testFeatureItem3.jpg' }),
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Mark Ferrari/Desert Twighlight.jpg' }),
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Carousel.Caption,
 	                        null,
 	                        _react2.default.createElement(
 	                            'h4',
 	                            null,
-	                            ' Variable for Work Title 3'
+	                            ' Red Canyon '
 	                        ),
 	                        _react2.default.createElement(
 	                            'p',
 	                            null,
-	                            'Variable for by Line 3'
+	                            'Mark Ferrari'
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Carousel.Item,
+	                    null,
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Roger Dean/Tales from Topographic Oceans.jpg' }),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Carousel.Caption,
+	                        null,
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            ' Tales from Topographic Oceans '
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            'Roger Dean'
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Carousel.Item,
+	                    null,
+	                    _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Anonymous/City.png' }),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Carousel.Caption,
+	                        null,
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            ' City '
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            'Anonymous'
 	                        )
 	                    )
 	                )
@@ -42053,7 +42096,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".carousel{\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n\r\n    /*background-size: cover;\r\n    background-position: 50% 50%;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 0;*/\r\n\r\n    background-size: cover;\r\n    width: 100%;\r\n    height: 550px;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    /*margin: 0 auto;*/\r\n    background-size: cover;\r\n    width: 100%;\r\n    /*height: 450px;*/\r\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+	exports.push([module.id, ".carousel{\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -1;\r\n}\r\n\r\n/*Fill 100% of parent container: .carousel*/\r\n.carousel-inner{\r\n    height: 100%;\r\n    z-index: 0;\r\n}\r\n.item{\r\n\r\n    background-size: cover;\r\n    width: 100%;\r\n    height: 550px;\r\n}\r\n/*Centers image in carousel-inner*/\r\n.carousel-inner > .item > img{\r\n    background-size: cover;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 	
 	// exports
 
@@ -42872,23 +42915,20 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	//const imageType = 'image';
 	var imageWidth = 225;
 	var imageHeight = 225;
-	var imageSrcs = ['../../assets/Kian Khiaban/11.jpg', '../../assets/Kian Khiaban/12.jpg', '../../assets/Kian Khiaban/Ego.jpg', '../../assets/Kian Khiaban/Flipped.png', '../../assets/Kian Khiaban/Frailty.png', '../../assets/Kian Khiaban/From A Distance.png', '../../assets/Kian Khiaban/Half+&+Half.png', '../../assets/Kian Khiaban/Material Studies.png', '../../assets/Kian Khiaban/Re-Balance.png', '../../assets/Kian Khiaban/StreetDance.png'];
-	//const imageSrcs=['../../assets/squareGreenLogo.png','../../assets/squareMagentaLogo.png',
-	//                 '../../assets/squareOrangeLogo.png'];
 	var descriptionString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ' + 'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ' + 'laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in ' + 'voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
 	var grid;
 	
 	var BottomContainer = function (_React$Component) {
 	    _inherits(BottomContainer, _React$Component);
 	
-	    function BottomContainer() {
+	    function BottomContainer(props) {
 	        _classCallCheck(this, BottomContainer);
 	
-	        var _this = _possibleConstructorReturn(this, (BottomContainer.__proto__ || Object.getPrototypeOf(BottomContainer)).call(this));
+	        var _this = _possibleConstructorReturn(this, (BottomContainer.__proto__ || Object.getPrototypeOf(BottomContainer)).call(this, props));
 	
+	        console.log('HI IM IN BOTTOM CONTAINER AND THESE ARE MY FUCKING PROPS: ' + _this.props.imgs);
 	        _this.state = {
 	            showModal: false,
 	            image: '',
@@ -42909,24 +42949,24 @@
 	            var artist;
 	            var title;
 	
-	            for (var i = 0; i < imageSrcs.length; i++) {
+	            for (var i = 0; i < this.props.imgs.length; i++) {
 	
 	                // Extract artist name and work title from file path
-	                var titleAr = imageSrcs[i].split('/');
+	                var titleAr = this.props.imgs[i].split('/');
 	                artist = titleAr[3];
 	                var titleNoExt = titleAr[4].split('.');
 	                title = titleNoExt[0];
 	
 	                // Create overlay text
-	                var overlayText = 'Title: ' + title + '\n' + 'Artist: ' + artist + '\n' + 'Price: ' + this.state.price;
+	                var overlayText = title + '\n' + artist + '\n' + this.state.price;
 	
 	                gridItems.push(_react2.default.createElement(
 	                    'div',
 	                    { id: 'item-container' },
-	                    _react2.default.createElement('img', { src: imageSrcs[i], width: imageWidth, height: imageHeight }),
+	                    _react2.default.createElement('img', { src: this.props.imgs[i], width: imageWidth, height: imageHeight }),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { id: 'overlay', key: imageSrcs[i], onClick: this.open.bind(this, imageSrcs[i], artist, title, descriptionString, this.state.price) },
+	                        { id: 'overlay', key: this.props.imgs[i], onClick: this.open.bind(this, this.props.imgs[i], artist, title, descriptionString, this.state.price) },
 	                        _react2.default.createElement(
 	                            'div',
 	                            { id: 'text' },
@@ -42980,14 +43020,6 @@
 	
 	/* You can also use props.message and have props as a param in the ({message, children})
 	, but this is much cleaner */
-	
-	/*
-	 <Modal show={this.state.showModal} onHide={this.close}>
-	 <Modal.Body>
-	 <Button>Purchase</Button>
-	 </Modal.Body>
-	 </Modal>
-	 */
 
 /***/ }),
 /* 471 */
@@ -43030,7 +43062,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n#grid-container{\n    padding:50px;\n    min-width: 1000px;\n}\n\n#grid{\n    text-align:center;\n}\n\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.75;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    text-align: left;\n    white-space: pre;\n    color: white;\n    font-size: small;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
+	exports.push([module.id, "\n#grid-container{\n    padding:50px;\n    min-width: 1000px;\n}\n\n#grid{\n    text-align:center;\n}\n\n#item-container {\n    position: relative;\n    margin: 10px;\n    display: inline-block;\n}\n\n#thumbnail-img{\n    background-size: cover;\n}\n\n#overlay {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #000;\n    overflow: hidden;\n    width: 100%;\n    height: 0;\n    transition: .5s ease;\n    opacity: 0.75;\n}\n\n#item-container:hover #overlay {\n    height: 100%;\n}\n\n#text {\n    text-align: left;\n    white-space: pre;\n    color: white;\n    font-size: small;\n    position: absolute;\n    overflow: hidden;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}", ""]);
 	
 	// exports
 
@@ -43151,7 +43183,6 @@
 	                        _react2.default.createElement(
 	                            'h4',
 	                            null,
-	                            'by: ',
 	                            this.props.artist
 	                        ),
 	                        _react2.default.createElement(
