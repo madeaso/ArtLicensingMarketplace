@@ -3,10 +3,20 @@ import {Glyphicon} from 'react-bootstrap';
 import '../../styles/link-styles.css';
 
 class QuickSearchGroup extends React.Component{
+
+    /*constructor(props){
+        super(props);
+        this.update = this.update.bind(this);
+    }
+
+    update(){
+        console.log('im in quicksearch\'s update');
+        this.props.update([],'hello');
+    }*/
     render(){
         return(
             <div id="quick-search-group">
-                    <a id="link-style" href="./build/MainPage.jsx"><Glyphicon glyph="user"/> Artists</a>
+                    <a id="link-style" onClick={() => this.props.update([],'quicksearch')}><Glyphicon glyph="user"/> Artists</a>
                     <a id="link-style" href="./build/MainPage.jsx"><Glyphicon glyph="picture"/> Subjects</a>
                     <a id="link-style" href="./build/MainPage.jsx"><Glyphicon glyph="calendar"/> Recently Added</a>
             </div>

@@ -1,6 +1,16 @@
 import React from 'react';
-import TopContainer from './Header/TopContainer';
+
+
+import {DropdownButton,MenuItem,Button,Glyphicon} from 'react-bootstrap';
+
 import BottomContainer from './Body/BottomContainer';
+import CustomCarousel from './Header/CustomCarousel';
+import LoginButtonGroup from './Header/LoginButtonGroup';
+
+import '../styles/top-container-styles.css';
+import '../styles/link-styles.css';
+import '../styles/dropdown-styles.css';
+import '../styles/searchbar-styles.css';
 
 class MainPage extends React.Component {
     constructor() {
@@ -25,13 +35,36 @@ class MainPage extends React.Component {
     }
 
     updateImgList(imgList,filterChoice){
+        console.log('artist link clicked imgList: ' + imgList + " filterChoice: " + filterChoice);
         this.setState({imgs:imgList,filter:filterChoice});
     }
 
     render(){
         return(
             <div>
-                <TopContainer filter= {this.state.filter} imgs={this.state.imgs} updateImgList={this.updateImgList}></TopContainer>
+                <div id="top-container">
+                    <CustomCarousel></CustomCarousel>
+                    <LoginButtonGroup></LoginButtonGroup>
+                    <div id="search-container">
+                        <div id="logo">
+                            <img height="90" width="250"src="../../assets/whitelogo.png"/>
+                        </div>
+                        <div id="form-group">
+                            <input type="text" placeholder="  Search"/>
+                            <DropdownButton title="Filter By" id="dropdown">
+                                <MenuItem eventKey="1" >Artists</MenuItem>
+                                <MenuItem eventKey="2" >Subjects</MenuItem>
+                                <MenuItem eventKey="3" >Recently Added</MenuItem>
+                            </DropdownButton>
+                            <Button bsSize="large"><Glyphicon glyph="search" /></Button>
+                        </div>
+                        <div id="quick-search-group">
+                            <a id="link-style" onClick={this.updateImgList.bind(this,[],'artist')}><Glyphicon glyph="user"/> Artists</a>
+                            <a id="link-style" onClick={this.updateImgList.bind(this,[],'subject')}><Glyphicon glyph="picture"/> Subjects</a>
+                            <a id="link-style" onClick={this.updateImgList.bind(this,[],'recent')}><Glyphicon glyph="calendar"/> Recently Added</a>
+                        </div>
+                    </div>
+                </div>
                 <BottomContainer filter= {this.state.filter} imgs={this.state.imgs}></BottomContainer>
             </div>
         );

@@ -30,6 +30,22 @@ class BottomContainer extends React.Component {
     }
 
     componentWillMount(){
+
+    }
+
+    getInitialState(){
+        return {showModal:false};
+    }
+
+    open(img,artist,title,desc,e){
+        this.setState({showModal:true, image:img, artist:artist, title:title,description:desc});
+    }
+
+    close(){
+        this.setState({showModal:false});
+    }
+
+    render(){
         var gridItems = [];
         var artist;
         var title;
@@ -55,21 +71,6 @@ class BottomContainer extends React.Component {
             );
         }
         grid = (<div id="grid">{gridItems}</div>)
-    }
-
-    getInitialState(){
-        return {showModal:false};
-    }
-
-    open(img,artist,title,desc,e){
-        this.setState({showModal:true, image:img, artist:artist, title:title,description:desc});
-    }
-
-    close(){
-        this.setState({showModal:false});
-    }
-
-    render(){
         return(
             <div id="grid-container">
                 {grid}

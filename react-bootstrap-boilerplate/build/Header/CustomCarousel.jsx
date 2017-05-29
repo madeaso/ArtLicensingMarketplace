@@ -1,10 +1,36 @@
 import React from 'react';
 import {Carousel} from 'react-bootstrap';
+import PurchaseModal from "../Body/PurchaseModal";
 import '../../styles/carousel-styles.css';
+import '../../styles/link-styles.css';
 
 class CustomCarousel extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            showModal:false,
+            image:'',
+            title:'',
+            artist:'',
+            description:'',
+            price:'$130.00'
+        }
+
+        this.close = this.close.bind(this);
+    }
+
+    close(){
+        this.setState({showModal:false});
+    }
+
+    open(img,artist,title,desc,e){
+        this.setState({showModal:true, image:img, artist:artist, title:title,description:desc});
+    }
+
     render(){
         return(
+            <div>
             <Carousel>
                 <Carousel.Item>
                     <img width={900} height={500} src="../../assets/Kian Khiaban/11.jpg"/>
@@ -42,6 +68,10 @@ class CustomCarousel extends React.Component{
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
+            <PurchaseModal showModal={this.state.showModal} onHide={() => this.close()} image={this.state.image}
+                title={this.state.title} artist={this.state.artist} description={this.state.description} price={this.state.price}>
+            </PurchaseModal>
+            </div>
         );
     }
 }

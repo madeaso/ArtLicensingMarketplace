@@ -21,7 +21,13 @@
     width: 100%;
 }
 
+.carousel-control{
+    visibility: hidden;
+}
 
+.carousel-indicators{
+    visibility: hidden;
+}
 
 
 
