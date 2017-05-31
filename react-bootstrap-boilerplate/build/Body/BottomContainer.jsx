@@ -29,10 +29,6 @@ class BottomContainer extends React.Component {
         //this.open = this.open.bind(this);
     }
 
-    componentWillMount(){
-
-    }
-
     getInitialState(){
         return {showModal:false};
     }

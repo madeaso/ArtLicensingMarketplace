@@ -1,0 +1,51 @@
+#modal-forms{
+    display: inline-block;
+}
+
+#img-dropzone{
+    display: inline-block;
+    width: 550px;
+}
+
+
+#submit-field-title{
+    display: block;
+    width: 300px;
+    margin:20px;
+}
+
+#submit-field-price{
+    display: block;
+    width: 150px;
+    margin:20px;
+}
+
+textarea{
+    display:block;
+    width:300px;
+    margin:21px;
+    font-size:medium;
+    color:white;
+    height:250px;
+    border-radius: 5px;
+    background-color:#eaeaea;
+    font-size:medium;
+}
+
+#submit-button{
+    margin: 20px;
+}
+
+textarea:focus{
+    outline:none;
+}
+
+.iu-label{
+    color:white !important;
+    font-size: medium;
+}
+
+.iu-loadContainer {
+    width:500px;
+    height:500px;
+}

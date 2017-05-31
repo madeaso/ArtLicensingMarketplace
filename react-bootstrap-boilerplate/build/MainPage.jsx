@@ -30,8 +30,23 @@ class MainPage extends React.Component {
                 '../../assets/Mark Ferrari/Mountain Gate.jpg','../../assets/Mark Ferrari/Mountain Gods.jpg',
                 '../../assets/Mark Ferrari/Red Canyon.jpg','../../assets/Mark Ferrari/Reef.jpg',
                 '../../assets/Mark Ferrari/Ruined City.jpg','../../assets/Mark Ferrari/Swamp Troll Cave.jpg'],
-            filter: 'none'
+            filter: 'none',
+            dropDownTitle: 'Filter By',
+            dropDownItems: ['Artist','Work','Subject']
         }
+    }
+
+    dropDownSelect(selectedItem,index){
+        var items = this.state.dropDownItems;
+        var replace;
+
+        if(this.state.dropDownTitle == 'Filter By'){
+            replace = 'No Filter';
+        }else{
+            replace = this.state.dropDownTitle;
+        }
+        items[index] = replace;
+        this.setState({dropDownTitle:selectedItem,dropDownItems:items});
     }
 
     updateImgList(imgList,filterChoice){
@@ -51,10 +66,10 @@ class MainPage extends React.Component {
                         </div>
                         <div id="form-group">
                             <input type="text" placeholder="  Search"/>
-                            <DropdownButton title="Filter By" id="dropdown">
-                                <MenuItem eventKey="1" >Artists</MenuItem>
-                                <MenuItem eventKey="2" >Subjects</MenuItem>
-                                <MenuItem eventKey="3" >Recently Added</MenuItem>
+                            <DropdownButton title={this.state.dropDownTitle} id="dropdown">
+                                <MenuItem eventKey="1" onSelect={this.dropDownSelect.bind(this,this.state.dropDownItems[0],0)}>{this.state.dropDownItems[0]}</MenuItem>
+                                <MenuItem eventKey="2" onSelect={this.dropDownSelect.bind(this,this.state.dropDownItems[1],1)}>{this.state.dropDownItems[1]}</MenuItem>
+                                <MenuItem eventKey="3" onSelect={this.dropDownSelect.bind(this,this.state.dropDownItems[2],2)}>{this.state.dropDownItems[2]}</MenuItem>
                             </DropdownButton>
                             <Button bsSize="large"><Glyphicon glyph="search" /></Button>
                         </div>
