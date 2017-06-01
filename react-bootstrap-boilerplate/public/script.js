@@ -42887,6 +42887,11 @@
 	            this.setState({ loggedIn: true });
 	        }
 	    }, {
+	        key: 'logout',
+	        value: function logout() {
+	            this.setState({ loggedIn: false });
+	        }
+	    }, {
 	        key: 'open',
 	        value: function open() {
 	            this.setState({ showModal: true });
@@ -42905,11 +42910,17 @@
 	            if (this.state.loggedIn) {
 	                buttonGroup = _react2.default.createElement(
 	                    'div',
-	                    { id: 'btn-group', onClick: this.open.bind(this) },
+	                    { id: 'btn-group' },
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Button,
-	                        null,
+	                        { onClick: this.open.bind(this) },
 	                        ' Submit '
+	                    ),
+	                    " ",
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Button,
+	                        { onClick: this.logout.bind(this) },
+	                        ' Logout '
 	                    ),
 	                    _react2.default.createElement(_SubmitModal2.default, { showModal: this.state.showModal, onHide: function onHide() {
 	                            return _this2.close();
@@ -42988,13 +42999,27 @@
 	var PurchaseModal = function (_React$Component) {
 	    _inherits(PurchaseModal, _React$Component);
 	
-	    function PurchaseModal() {
+	    function PurchaseModal(props) {
 	        _classCallCheck(this, PurchaseModal);
 	
-	        return _possibleConstructorReturn(this, (PurchaseModal.__proto__ || Object.getPrototypeOf(PurchaseModal)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (PurchaseModal.__proto__ || Object.getPrototypeOf(PurchaseModal)).call(this, props));
+	
+	        _this.state = {
+	            title: '',
+	            price: '',
+	            desc: '',
+	            img: ''
+	        };
+	        return _this;
 	    }
 	
 	    _createClass(PurchaseModal, [{
+	        key: 'submit',
+	        value: function submit(e, title, price, desc, img) {
+	
+	            this.setState({ title: title, price: price, desc: desc, img: img });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
@@ -43034,7 +43059,7 @@
 	                            _react2.default.createElement('textarea', { id: 'submit-field-textarea', maxlength: '150', placeholder: '  Description' }),
 	                            _react2.default.createElement(
 	                                _reactBootstrap.Button,
-	                                { id: 'submit-button' },
+	                                { id: 'submit-button', onClick: this.submit.bind(this, 'title,price,desc,img') },
 	                                'Submit'
 	                            )
 	                        )

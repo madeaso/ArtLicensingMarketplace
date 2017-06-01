@@ -20,6 +20,9 @@
     "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
+    "cors-prefetch-middleware": "^1.0.0",
+    "express": "^4.15.3",
+    "images-upload-middleware": "^1.1.1",
     "react": "^15.0.0-rc.2",
     "react-bootstrap": "^0.28.4",
     "react-dom": "^15.0.0-rc.2",

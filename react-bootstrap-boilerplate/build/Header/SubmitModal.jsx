@@ -8,7 +8,23 @@ import '../../styles/modal-styles.css';
 import '../../styles/searchbar-styles.css';
 import '../../styles/submit-form-styles.css';
 
+
 class PurchaseModal extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            title:'',
+            price:'',
+            desc:'',
+            img:''
+        }
+    }
+
+    submit(e,title,price,desc,img){
+
+        this.setState({title:title,price:price,desc:desc,img:img});
+    }
 
     render(){
         //console.log('showModal: ' + this.props.showModal + ' image: ' + this.props.image + ' artist: ' + this.props.artist + ' title: ' + this.props.title + ' desc: ' + this.props.description);
@@ -33,7 +49,7 @@ class PurchaseModal extends React.Component {
                             <input id="submit-field-title"  type="text" placeholder="  Title"/>
                             <input id="submit-field-price" type="text" placeholder="  Price"/>
                             <textarea id="submit-field-textarea" maxlength="150" placeholder="  Description"></textarea>
-                            <Button id="submit-button">Submit</Button>
+                            <Button id="submit-button" onClick={this.submit.bind(this,'title,price,desc,img')}>Submit</Button>
                         </div>
                     </div>
                 </Modal.Body>

@@ -23,6 +23,10 @@ class LoginButtonGroup extends React.Component{
         this.setState({loggedIn:true});
     }
 
+    logout(){
+        this.setState({loggedIn:false});
+    }
+
     open(){
         this.setState({showModal:true});
     }
@@ -34,7 +38,7 @@ class LoginButtonGroup extends React.Component{
     render(){
         var buttonGroup;
         if(this.state.loggedIn){
-            buttonGroup = <div id="btn-group" onClick={this.open.bind(this)}><Button> Submit </Button><SubmitModal showModal={this.state.showModal} onHide={() => this.close()}/></div>
+            buttonGroup = <div id="btn-group"><Button onClick={this.open.bind(this)}> Submit </Button>{" "}<Button onClick={this.logout.bind(this)}> Logout </Button><SubmitModal showModal={this.state.showModal} onHide={() => this.close()}/></div>
         }else{
             buttonGroup = <div id="btn-group"><Button onClick={this.login.bind(this)}>Login</Button>{" "}<Button>Sign Up</Button></div>
         }
