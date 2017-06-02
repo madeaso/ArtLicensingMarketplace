@@ -22,7 +22,7 @@ class PurchaseModal extends React.Component {
     }
 
     submit(e,title,price,desc,img){
-
+    
         this.setState({title:title,price:price,desc:desc,img:img});
     }
 

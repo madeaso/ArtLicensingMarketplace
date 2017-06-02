@@ -21,7 +21,10 @@ var path = require('path');
           query: {
             presets: ['es2015', 'react']
           }
-        }
+        },
+          {loader:'json-loader',
+          test: /\.json$/
+          }
       ]
     },
     resolve: {

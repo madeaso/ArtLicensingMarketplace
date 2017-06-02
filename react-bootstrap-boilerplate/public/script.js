@@ -57172,7 +57172,7 @@
 	
 	
 	// module
-	exports.push([module.id, "#modal-forms{\n    display: inline-block;\n}\n\n#img-dropzone{\n    display: inline-block;\n    width: 550px;\n}\n\n\n#submit-field-title{\n    display: block;\n    width: 300px;\n    margin:20px;\n}\n\n#submit-field-price{\n    display: block;\n    width: 150px;\n    margin:20px;\n}\n\ntextarea{\n    display:block;\n    width:300px;\n    margin:21px;\n    font-size:medium;\n    color:white;\n    height:250px;\n    border-radius: 5px;\n    background-color:#eaeaea;\n    font-size:medium;\n}\n\n#submit-button{\n    margin: 20px;\n}\n\ntextarea:focus{\n    outline:none;\n}\n\n.iu-label{\n    color:white !important;\n    font-size: medium;\n}\n\n.iu-loadContainer {\n    width:500px;\n    height:500px;\n}\n", ""]);
+	exports.push([module.id, "#modal-forms{\n    display: inline-block;\n}\n\n#img-dropzone{\n    display: inline-block;\n    width: 550px;\n}\n\n\n#submit-field-title{\n    display: block;\n    width: 300px;\n    margin:20px;\n}\n\n#submit-field-price{\n    display: block;\n    width: 150px;\n    margin:20px;\n}\n\ntextarea{\n    display:block;\n    width:300px;\n    margin:21px;\n    font-size:medium;\n    color:white;\n    height:250px;\n    border-radius: 5px;\n    background-color:#eaeaea;\n    font-size:medium;\n}\n\n#submit-button{\n    margin: 20px;\n}\n\ntextarea:focus{\n    outline:none;\n}\n\n.iu-label{\n    color:white !important;\n    font-size: medium;\n}\n\n.iu-loadContainer {\n    width:500px;\n    height:500px;\n}\n\n.iu-imgPreview{\n    width:500px;\n    height:500px;\n    top:-200px;\n    left:-200px;\n}", ""]);
 	
 	// exports
 

@@ -49,3 +49,10 @@ textarea:focus{
     width:500px;
     height:500px;
 }
+
+.iu-imgPreview{
+    width:500px;
+    height:500px;
+    top:-200px;
+    left:-200px;
+}
