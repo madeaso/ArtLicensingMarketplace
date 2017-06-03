@@ -32,6 +32,19 @@ textarea{
     font-size:medium;
 }
 
+#dropdown-submit{
+    border-radius: 5px;
+    border-style:none;
+    height:35px;
+    font-size:medium;
+    background-color:#eaeaea;
+    color:#727272;
+    margin-top:-3px;
+    width:180px;
+    left:20px;
+    display: block;
+}
+
 #submit-button{
     margin: 20px;
 }
