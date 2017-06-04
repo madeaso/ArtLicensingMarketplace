@@ -25,6 +25,7 @@
     "body-parser": "^1.17.2",
     "cors-prefetch-middleware": "^1.0.0",
     "express": "^4.15.3",
+    "fs": "0.0.1-security",
     "images-upload-middleware": "^1.1.1",
     "json-loader": "^0.5.4",
     "mongodb": "^2.2.28",

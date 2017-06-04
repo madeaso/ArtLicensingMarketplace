@@ -11,6 +11,8 @@ input{
     height:35px;
     font-size:medium;
     background-color:#eaeaea;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 /*Styling for search button focus*/

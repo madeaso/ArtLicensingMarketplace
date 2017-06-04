@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 
 import {DropdownButton,MenuItem,Button,Glyphicon} from 'react-bootstrap';
 
@@ -30,7 +30,8 @@ class MainPage extends React.Component {
                 '../../assets/Mark Ferrari/Mountain Gate.jpg','../../assets/Mark Ferrari/Mountain Gods.jpg',
                 '../../assets/Mark Ferrari/Red Canyon.jpg','../../assets/Mark Ferrari/Reef.jpg',
                 '../../assets/Mark Ferrari/Ruined City.jpg','../../assets/Mark Ferrari/Swamp Troll Cave.jpg'],
-            filter: 'none',
+            filter: ' ',
+            responseData:[],
             dropDownTitle: 'Filter By',
             dropDownItems: ['Artist','Work','Subject']
         }
@@ -50,8 +51,11 @@ class MainPage extends React.Component {
     }
 
     updateImgList(imgList,filterChoice){
-        console.log('artist link clicked imgList: ' + imgList + " filterChoice: " + filterChoice);
-        this.setState({imgs:imgList,filter:filterChoice});
+
+        axios.get("http://localhost:9090/get").then(response => this.setState({imgs:imgList,filter:filterChoice,responseData:response.data}))
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     render(){
@@ -80,7 +84,7 @@ class MainPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <BottomContainer filter= {this.state.filter} imgs={this.state.imgs}></BottomContainer>
+                <BottomContainer filter= {this.state.filter} responseData={this.state.responseData}></BottomContainer>
             </div>
         );
     }

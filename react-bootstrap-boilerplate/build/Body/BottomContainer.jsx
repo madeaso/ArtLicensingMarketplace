@@ -6,35 +6,29 @@ import {Modal,Button} from 'react-bootstrap';
 
 const imageWidth = 225;
 const imageHeight = 225;
-var descriptionString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ' +
-                        'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ' +
-                        'laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in ' +
-                        'voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
-var grid;
 
 class BottomContainer extends React.Component {
 
     constructor(props){
         super(props);
-        console.log('HI IM IN BOTTOM CONTAINER AND THESE ARE MY FUCKING PROPS: ' + this.props.imgs);
+        console.log('HI IM IN BOTTOM CONTAINER AND THESE ARE MY FUCKING PROPS: ' + this.props.responseData);
         this.state={
             showModal:false,
             image:'',
             title:'',
             artist:'',
             description:'',
-            price:'$130.00'
+            price:''
         }
         this.close = this.close.bind(this);
-        //this.open = this.open.bind(this);
     }
 
     getInitialState(){
         return {showModal:false};
     }
 
-    open(img,artist,title,desc,e){
-        this.setState({showModal:true, image:img, artist:artist, title:title,description:desc});
+    open(img,artist,title,desc,price,e){
+        this.setState({showModal:true, image:img, artist:artist, title:title,description:desc,price:price});
     }
 
     close(){
@@ -43,30 +37,45 @@ class BottomContainer extends React.Component {
 
     render(){
         var gridItems = [];
-        var artist;
-        var title;
+        var grid;
 
-        for(var i = 0; i < this.props.imgs.length; i++){
+        if(this.props.filter == 'recent'){
+            for(var i = 0; i < this.props.responseData.length; i++){
 
-            // Extract artist name and work title from file path
-            var titleAr = this.props.imgs[i].split('/');
-            artist = titleAr[3];
-            var titleNoExt = titleAr[4].split('.');
-            title = titleNoExt[0];
+                // Create overlay text
+                var overlayText = this.props.responseData[i].title + '\n' +  this.props.responseData[i].artist + '\n' + this.props.responseData[i].price;
 
-            // Create overlay text
-            var overlayText = title + '\n' +  artist + '\n' + this.state.price;
-
-            gridItems.push(
-                <div id="item-container">
-                    <img src={this.props.imgs[i]} width={imageWidth} height={imageHeight} />
-                    <div id="overlay" key={this.props.imgs[i]} onClick={this.open.bind(this,this.props.imgs[i],artist,title,descriptionString,this.state.price)}>
-                        <div id="text">{overlayText}</div>
+                gridItems.push(
+                    <div id="item-container">
+                        <img src={this.props.responseData[i].image_url} width={imageWidth} height={imageHeight} />
+                        <div id="overlay" onClick={this.open.bind(this,this.props.responseData[i].image_url,this.props.responseData[i].artist,this.props.responseData[i].title,this.props.responseData[i].description,this.props.responseData[i].price)}>
+                            <div id="text">{overlayText}</div>
+                        </div>
                     </div>
-                </div>
-            );
+                );
+            }
+            grid = (<div id="grid">{gridItems}</div>)
+        }else{
+            for(var i = 0; i < this.props.responseData.length; i++){
+
+                // Create overlay text
+                if(this.props.filter == 'artist')
+                    var overlayText = this.props.responseData[i].artist;
+                else
+                    var overlayText = this.props.responseData[i].subject_type;
+
+                gridItems.push(
+                    <div id="item-container">
+                        <img src={this.props.responseData[i].image_url} width={imageWidth} height={imageHeight} />
+                        <div id="overlay" onClick={this.open.bind(this,this.props.responseData[i].image_url,this.props.responseData[i].artist,this.props.responseData[i].title,this.props.responseData[i].description,this.props.responseData[i].price)}>
+                            <div id="text">{overlayText}</div>
+                        </div>
+                    </div>
+                );
+            }
+            grid = (<div id="grid">{gridItems}</div>)
         }
-        grid = (<div id="grid">{gridItems}</div>)
+
         return(
             <div id="grid-container">
                 {grid}

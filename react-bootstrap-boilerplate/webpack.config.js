@@ -12,7 +12,9 @@ var path = require('path');
     },
 
     devtools: 'eval-source-map',
-
+    node:{
+      fs:"empty"
+    },
     module: {
       loaders: [
         { test: /\.css$/,
