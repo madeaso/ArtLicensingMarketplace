@@ -3,8 +3,12 @@ var path = require('path');
   module.exports = {
     context: process.cwd(),
     entry: {
-      script: './build/App.jsx'
+      script: './build/App.jsx',
   },
+      devServer: {
+          address: '111.111.111.111',
+          port: 3000
+      },
     output: {
       path: './public',
       filename: "[name].js",
