@@ -5,6 +5,9 @@ import imagesUpload from 'images-upload-middleware';
 const fs = require("fs");
 
 const app = express();
+var openchain = require("openchain");
+var bitcore = require("bitcore-lib");
+var rollingSeed = 'XraCQjqvCgmZ96v7pV6Xj2SwcnQRXT7ZLR';
 
 var MongoClient = require('mongodb');
 var assert = require('assert');
@@ -125,12 +128,12 @@ app.post('/insert', function(req, res, next) {
     var mostRecent = new Date(2010, 1, 1).getTime() / 1000;
     var fileToSave;
     var imgFile;
-    var fullImgPath;
+    var fullImgPath = '';
 
     fs.readdir("./public/uploads",function(err,list){
         list.forEach(function (file) {
 
-            fullImgPath = "/Users/Melanie/Documents/CPP Spring 2017/CS 480 Software Engineering/ArtLicensingMarketplace/react-bootstrap-boilerplate/public/uploads/" + file;
+            fullImgPath = "/home/andrew/ArtLicensingMarketplace/react-bootstrap-boilerplate/public/uploads/" + file;
             imgFile = fs.statSync(fullImgPath);
 
             if(imgFile.birthtime > mostRecent){
@@ -140,6 +143,53 @@ app.post('/insert', function(req, res, next) {
             }
         })
     });
+
+
+    /* --- Openchain Submit --- */
+    var conv = require('binstring');
+    var seed = rollingSeed + fullImgPath;
+    seed = conv(seed, {in:'utf8', out:'hex'});
+// Load a private key from a seed
+    var privateKey = bitcore.HDPrivateKey.fromSeed(seed, "openchain");
+    var address = privateKey.publicKey.toAddress();
+    rollingSeed = address;
+// Calculate the accounts corresponding to the private key
+    var issuancePath = "/asset/p2pkh/" + address + "/";
+    var assetPath = issuancePath;
+    var walletPath = "/p2pkh/" + address + "/";
+
+    console.log("Rolling Seed: " + rollingSeed);
+    console.log("Issuance path: " + issuancePath);
+    console.log("Wallet path: " + walletPath);
+
+// Create an Openchain client and signer
+    var client = new openchain.ApiClient("http://localhost:8080/");
+    var signer = new openchain.MutationSigner(privateKey);
+
+// Initialize the client
+    client.initialize()
+        .then(function () {
+            // Create a new transaction builder
+            return new openchain.TransactionBuilder(client)
+            // Add the key to the transaction builder
+                .addSigningKey(signer)
+                // Add some metadata to the transaction
+                .setMetadata({ "memo": "Issued through NodeJS" })
+                // Take 100 units of the asset from the issuance path
+                .updateAccountRecord(issuancePath, assetPath, -1);
+        })
+        .then(function (transactionBuilder) {
+            // Add 100 units of the asset to the target wallet path
+            return transactionBuilder.updateAccountRecord(walletPath, assetPath, 1);
+        })
+        .then(function (transactionBuilder) {
+            // Submit the transaction
+            return transactionBuilder.submit();
+        })
+        .then(function (result) { console.log(result); });
+
+
+    /* --- MongoDB --- */
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         console.log("Connected successfully to server: req.body: " + req.body);
@@ -150,7 +200,7 @@ app.post('/insert', function(req, res, next) {
                 "title":req.body.title,
                 "artist": req.body.artist,
                 "available": true,
-                "blockchain_id": "blockchain_id",
+                "blockchain_id": address,
                 "date_added": new Date(),
                 "description": req.body.desc,
                 "price": req.body.price,
