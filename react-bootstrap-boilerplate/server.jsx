@@ -19,11 +19,7 @@ app.use('/static',express.static('./server/static'));
 app.use(corsPrefetch);
 
 
-app.post('/notmultiple', imagesUpload(
-    './public/uploads',
-    './uploads'
-));
-
+// Set up server on 9090
 app.listen(9090, err => {
     if(err){
         return console.error(err);
@@ -31,25 +27,100 @@ app.listen(9090, err => {
     console.log('Listening on: 9090');
 });
 
-// Display artists in order (ascending)
-app.get('/get', function(req,res,next){
+// Upload image from user
+app.post('/notmultiple', imagesUpload(
+    './public/uploads',
+    './uploads'
+));
+
+// Search for term give a filter or no filter
+app.get('/get/:searchTerm/:filter', function(req,res,next){
 
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         console.log("Connected successfully to server");
         var collection = db.collection('artwork');
-        collection.find({}).sort({'artist':1}).toArray(function(err, docs) {
-            assert.equal(err, null);
-            console.log("Found the following records");
-            console.log(docs);
-            return res.json(docs);
-        });
+
+        var regex = '.*' + req.params.searchTerm + '.*';
+
+        // DB CODE
+        if(req.params.filter == 'Subject'){
+            console.log("searchTerm: " + req.params.searchTerm);
+            collection.find({subject_type: new RegExp(regex)}).sort({date_added:1}).toArray(function(err, docs) {
+                assert.equal(err, null);
+                console.log("Found the following records");
+                console.log(docs);
+                return res.json(docs);
+            });
+        }
+        else if(req.params.filter == 'Artist'){
+            console.log("searchTerm: " + req.params.searchTerm);
+            collection.find({artist: new RegExp(regex)}).sort({date_added:-1}).toArray(function(err, docs) {
+                assert.equal(err, null);
+                console.log("Found the following records");
+                console.log(docs);
+                return res.json(docs);
+            });
+        }
+        else if(req.params.filter == 'Work'){
+            console.log("searchTerm: " + req.params.searchTerm);
+            collection.find({title: new RegExp(regex)}).sort({date_added:-1}).toArray(function(err, docs) {
+                assert.equal(err, null);
+                console.log("Found the following records");
+                console.log(docs);
+                return res.json(docs);
+            });
+        }
+        /*else if(req.params.filter == 'Filter By' || req.params.filter == 'No Filter'){
+            console.log("searchTerm: " + req.params.searchTerm);
+            collection.find({title: req.params.searchTerm, artist:req.params.searchTerm, subject_type: req.params.searchTerm}).sort({date_added:-1}).toArray(function(err, docs) {
+                assert.equal(err, null);
+                console.log("Found the following records");
+                console.log(docs);
+                return res.json(docs);
+            });
+        }*/
 
         db.close();
     });
 });
 
-// Add art to db
+
+// Quick Search Links
+app.get('/get/:filter', function(req,res,next){
+
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server");
+        var collection = db.collection('artwork');
+
+        if(req.params.filter == 'artist'){ // Display all artists
+            collection.distinct("artist", (function(err,docs) {
+                console.log(docs);
+                assert.equal(null,err);
+                return res.json(docs);
+            }));
+        }else if(req.params.filter == 'subject'){ // Display all subjects
+            collection.distinct("subject_type", (function(err,docs) {
+                assert.equal(err, null);
+                console.log("Found the following records");
+                console.log(docs);
+                return res.json(docs);
+            }));
+        }else if(req.params.filter == 'recent'){ // Display all art ordered by recently added
+            collection.find({}).sort({date_added:-1}).toArray(function(err, docs) {
+                assert.equal(err, null);
+                console.log("Found the following records");
+                console.log(docs);
+                return res.json(docs);
+            });
+        }
+
+        db.close();
+    });
+});
+
+// Add art to DB
 app.post('/insert', function(req, res, next) {
     var mostRecent = new Date(2010, 1, 1).getTime() / 1000;
     var fileToSave;

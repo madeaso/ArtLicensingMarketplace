@@ -16,25 +16,12 @@ class MainPage extends React.Component {
     constructor() {
         super();
         this.state = {
-            imgs: ['../../assets/Kian Khiaban/11.jpg','../../assets/Kian Khiaban/12.jpg',
-                '../../assets/Kian Khiaban/Ego.jpg','../../assets/Kian Khiaban/Flipped.png',
-                '../../assets/Kian Khiaban/Frailty.png','../../assets/Kian Khiaban/From A Distance.png',
-                '../../assets/Kian Khiaban/Half+&+Half.png','../../assets/Kian Khiaban/Material Studies.png',
-                '../../assets/Kian Khiaban/Re-Balance.png','../../assets/Kian Khiaban/StreetDance.png',
-                '../../assets/Anonymous/Unknown.png','../../assets/Mark Ferrari/Cave.jpg',
-                '../../assets/Roger Dean/Floating Jungle.jpg','../../assets/Roger Dean/Tales from Topographic Oceans.jpg',
-                '../../assets/Mark Ferrari/Desert Fortress - Dawn.jpg','../../assets/Mark Ferrari/Desert Twighlight.jpg',
-                '../../assets/Mark Ferrari/Elven Falls - Morning.jpg','../../assets/Mark Ferrari/Fire Fly Swamp.jpg',
-                '../../assets/Mark Ferrari/Henge.jpg','../../assets/Mark Ferrari/Lotus Bayou.jpg',
-                '../../assets/Mark Ferrari/Mayan City - Rain.jpg','../../assets/Mark Ferrari/Mossy Forest.jpg',
-                '../../assets/Mark Ferrari/Mountain Gate.jpg','../../assets/Mark Ferrari/Mountain Gods.jpg',
-                '../../assets/Mark Ferrari/Red Canyon.jpg','../../assets/Mark Ferrari/Reef.jpg',
-                '../../assets/Mark Ferrari/Ruined City.jpg','../../assets/Mark Ferrari/Swamp Troll Cave.jpg'],
             filter: ' ',
             responseData:[],
             dropDownTitle: 'Filter By',
             dropDownItems: ['Artist','Work','Subject']
         }
+        this.updateImgList('recent');
     }
 
     dropDownSelect(selectedItem,index){
@@ -50,15 +37,40 @@ class MainPage extends React.Component {
         this.setState({dropDownTitle:selectedItem,dropDownItems:items});
     }
 
-    updateImgList(imgList,filterChoice){
-
-        axios.get("http://localhost:9090/get").then(response => this.setState({imgs:imgList,filter:filterChoice,responseData:response.data}))
+    updateImgList(filterChoice){
+        var baseRequest = "http://localhost:9090/get/";
+        var fullRequest = baseRequest + filterChoice;
+        if(filterChoice == 'recent')
+            filterChoice = 'single';
+        else
+            filterChoice = 'block';
+        axios.get(fullRequest).then(response => this.setState({filter:filterChoice,responseData:response.data}))
         .catch(function (error) {
             console.log(error);
         });
     }
 
+    searchQuery(searchTerm,filterChoice){
+        var baseRequest = "http://localhost:9090/get/";
+        var fullRequest = baseRequest + searchTerm + '/' + filterChoice;
+        filterChoice = 'single';
+        console.log('search initiated');
+        axios.get(fullRequest).then(response => this.setState({filter:filterChoice,responseData:response.data}))
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     render(){
+
+        var element;
+        var searchTerm;
+
+        element = document.getElementById("search-bar");
+        if(element != null){
+            searchTerm = element.value;
+        }
+
         return(
             <div>
                 <div id="top-container">
@@ -69,18 +81,18 @@ class MainPage extends React.Component {
                             <img height="90" width="250"src="../../assets/whitelogo.png"/>
                         </div>
                         <div id="form-group">
-                            <input type="text" placeholder="  Search"/>
+                            <input type="text" placeholder="Search" id="search-bar"/>
                             <DropdownButton title={this.state.dropDownTitle} id="dropdown">
                                 <MenuItem eventKey="1" onSelect={this.dropDownSelect.bind(this,this.state.dropDownItems[0],0)}>{this.state.dropDownItems[0]}</MenuItem>
                                 <MenuItem eventKey="2" onSelect={this.dropDownSelect.bind(this,this.state.dropDownItems[1],1)}>{this.state.dropDownItems[1]}</MenuItem>
                                 <MenuItem eventKey="3" onSelect={this.dropDownSelect.bind(this,this.state.dropDownItems[2],2)}>{this.state.dropDownItems[2]}</MenuItem>
                             </DropdownButton>
-                            <Button bsSize="large"><Glyphicon glyph="search" /></Button>
+                            <Button bsSize="large" onClick={this.searchQuery.bind(this,searchTerm,this.state.dropDownTitle)}><Glyphicon glyph="search" /></Button>
                         </div>
                         <div id="quick-search-group">
-                            <a id="link-style" onClick={this.updateImgList.bind(this,[],'artist')}><Glyphicon glyph="user"/> Artists</a>
-                            <a id="link-style" onClick={this.updateImgList.bind(this,[],'subject')}><Glyphicon glyph="picture"/> Subjects</a>
-                            <a id="link-style" onClick={this.updateImgList.bind(this,[],'recent')}><Glyphicon glyph="calendar"/> Recently Added</a>
+                            <a id="link-style" onClick={this.updateImgList.bind(this,'artist')}><Glyphicon glyph="user"/> Artists</a>
+                            <a id="link-style" onClick={this.updateImgList.bind(this,'subject')}><Glyphicon glyph="picture"/> Subjects</a>
+                            <a id="link-style" onClick={this.updateImgList.bind(this,'recent')}><Glyphicon glyph="calendar"/> Recently Added</a>
                         </div>
                     </div>
                 </div>

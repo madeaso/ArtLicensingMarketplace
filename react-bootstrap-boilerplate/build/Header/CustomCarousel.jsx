@@ -47,7 +47,7 @@ class CustomCarousel extends React.Component{
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img width={900} height={500} src="../../assets/Mark Ferrari/Desert Twighlight.jpg"/>
+                    <img width={900} height={500} src="../../assets/Christopher Flora-Tostada/banner.jpg"/>
                     <Carousel.Caption>
                         <h4> Red Canyon </h4>
                         <p>Mark Ferrari</p>

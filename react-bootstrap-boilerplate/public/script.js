@@ -22400,12 +22400,12 @@
 	        var _this = _possibleConstructorReturn(this, (MainPage.__proto__ || Object.getPrototypeOf(MainPage)).call(this));
 	
 	        _this.state = {
-	            imgs: ['../../assets/Kian Khiaban/11.jpg', '../../assets/Kian Khiaban/12.jpg', '../../assets/Kian Khiaban/Ego.jpg', '../../assets/Kian Khiaban/Flipped.png', '../../assets/Kian Khiaban/Frailty.png', '../../assets/Kian Khiaban/From A Distance.png', '../../assets/Kian Khiaban/Half+&+Half.png', '../../assets/Kian Khiaban/Material Studies.png', '../../assets/Kian Khiaban/Re-Balance.png', '../../assets/Kian Khiaban/StreetDance.png', '../../assets/Anonymous/Unknown.png', '../../assets/Mark Ferrari/Cave.jpg', '../../assets/Roger Dean/Floating Jungle.jpg', '../../assets/Roger Dean/Tales from Topographic Oceans.jpg', '../../assets/Mark Ferrari/Desert Fortress - Dawn.jpg', '../../assets/Mark Ferrari/Desert Twighlight.jpg', '../../assets/Mark Ferrari/Elven Falls - Morning.jpg', '../../assets/Mark Ferrari/Fire Fly Swamp.jpg', '../../assets/Mark Ferrari/Henge.jpg', '../../assets/Mark Ferrari/Lotus Bayou.jpg', '../../assets/Mark Ferrari/Mayan City - Rain.jpg', '../../assets/Mark Ferrari/Mossy Forest.jpg', '../../assets/Mark Ferrari/Mountain Gate.jpg', '../../assets/Mark Ferrari/Mountain Gods.jpg', '../../assets/Mark Ferrari/Red Canyon.jpg', '../../assets/Mark Ferrari/Reef.jpg', '../../assets/Mark Ferrari/Ruined City.jpg', '../../assets/Mark Ferrari/Swamp Troll Cave.jpg'],
 	            filter: ' ',
 	            responseData: [],
 	            dropDownTitle: 'Filter By',
 	            dropDownItems: ['Artist', 'Work', 'Subject']
 	        };
+	        _this.updateImgList('recent');
 	        return _this;
 	    }
 	
@@ -22425,11 +22425,29 @@
 	        }
 	    }, {
 	        key: 'updateImgList',
-	        value: function updateImgList(imgList, filterChoice) {
+	        value: function updateImgList(filterChoice) {
 	            var _this2 = this;
 	
-	            _axios2.default.get("http://localhost:9090/get").then(function (response) {
-	                return _this2.setState({ imgs: imgList, filter: filterChoice, responseData: response.data });
+	            var baseRequest = "http://localhost:9090/get/";
+	            var fullRequest = baseRequest + filterChoice;
+	            if (filterChoice == 'recent') filterChoice = 'single';else filterChoice = 'block';
+	            _axios2.default.get(fullRequest).then(function (response) {
+	                return _this2.setState({ filter: filterChoice, responseData: response.data });
+	            }).catch(function (error) {
+	                console.log(error);
+	            });
+	        }
+	    }, {
+	        key: 'searchQuery',
+	        value: function searchQuery(searchTerm, filterChoice) {
+	            var _this3 = this;
+	
+	            var baseRequest = "http://localhost:9090/get/";
+	            var fullRequest = baseRequest + searchTerm + '/' + filterChoice;
+	            filterChoice = 'single';
+	            console.log('search initiated');
+	            _axios2.default.get(fullRequest).then(function (response) {
+	                return _this3.setState({ filter: filterChoice, responseData: response.data });
 	            }).catch(function (error) {
 	                console.log(error);
 	            });
@@ -22437,6 +22455,15 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	
+	            var element;
+	            var searchTerm;
+	
+	            element = document.getElementById("search-bar");
+	            if (element != null) {
+	                searchTerm = element.value;
+	            }
+	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -22456,7 +22483,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { id: 'form-group' },
-	                            _react2.default.createElement('input', { type: 'text', placeholder: '  Search' }),
+	                            _react2.default.createElement('input', { type: 'text', placeholder: 'Search', id: 'search-bar' }),
 	                            _react2.default.createElement(
 	                                _reactBootstrap.DropdownButton,
 	                                { title: this.state.dropDownTitle, id: 'dropdown' },
@@ -22478,7 +22505,7 @@
 	                            ),
 	                            _react2.default.createElement(
 	                                _reactBootstrap.Button,
-	                                { bsSize: 'large' },
+	                                { bsSize: 'large', onClick: this.searchQuery.bind(this, searchTerm, this.state.dropDownTitle) },
 	                                _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'search' })
 	                            )
 	                        ),
@@ -22487,19 +22514,19 @@
 	                            { id: 'quick-search-group' },
 	                            _react2.default.createElement(
 	                                'a',
-	                                { id: 'link-style', onClick: this.updateImgList.bind(this, [], 'artist') },
+	                                { id: 'link-style', onClick: this.updateImgList.bind(this, 'artist') },
 	                                _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'user' }),
 	                                ' Artists'
 	                            ),
 	                            _react2.default.createElement(
 	                                'a',
-	                                { id: 'link-style', onClick: this.updateImgList.bind(this, [], 'subject') },
+	                                { id: 'link-style', onClick: this.updateImgList.bind(this, 'subject') },
 	                                _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'picture' }),
 	                                ' Subjects'
 	                            ),
 	                            _react2.default.createElement(
 	                                'a',
-	                                { id: 'link-style', onClick: this.updateImgList.bind(this, [], 'recent') },
+	                                { id: 'link-style', onClick: this.updateImgList.bind(this, 'recent') },
 	                                _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'calendar' }),
 	                                ' Recently Added'
 	                            )
@@ -45599,7 +45626,7 @@
 	            var gridItems = [];
 	            var grid;
 	
-	            if (this.props.filter == 'recent') {
+	            if (this.props.filter == 'single') {
 	                for (var i = 0; i < this.props.responseData.length; i++) {
 	
 	                    // Create overlay text
@@ -46305,7 +46332,7 @@
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Carousel.Item,
 	                        null,
-	                        _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Mark Ferrari/Desert Twighlight.jpg' }),
+	                        _react2.default.createElement('img', { width: 900, height: 500, src: '../../assets/Christopher Flora-Tostada/banner.jpg' }),
 	                        _react2.default.createElement(
 	                            _reactBootstrap.Carousel.Caption,
 	                            null,

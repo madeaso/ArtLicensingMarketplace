@@ -39,7 +39,7 @@ class BottomContainer extends React.Component {
         var gridItems = [];
         var grid;
 
-        if(this.props.filter == 'recent'){
+        if(this.props.filter == 'single'){
             for(var i = 0; i < this.props.responseData.length; i++){
 
                 // Create overlay text
