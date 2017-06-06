@@ -133,7 +133,7 @@ app.post('/insert', function(req, res, next) {
     fs.readdir("./public/uploads",function(err,list){
         list.forEach(function (file) {
 
-            fullImgPath = "/home/andrew/ArtLicensingMarketplace/react-bootstrap-boilerplate/public/uploads/" + file;
+            fullImgPath = "/Users/Melanie/Documents/CPP Spring 2017/ CS 480 Software Engineering/ArtLicensingMarketplace/react-bootstrap-boilerplate/public/uploads/" + file;
             imgFile = fs.statSync(fullImgPath);
 
             if(imgFile.birthtime > mostRecent){
