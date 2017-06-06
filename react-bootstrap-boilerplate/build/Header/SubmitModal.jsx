@@ -15,6 +15,7 @@ class PurchaseModal extends React.Component {
         super(props);
         this.state={
             submitStatus:'none',
+            blockchainID:'empty',
             artist:'',
             title:'',
             price:'',
@@ -50,8 +51,13 @@ class PurchaseModal extends React.Component {
 
     submit(artist,title,price,desc,subj){
         var success = true;
+        var request = 'http://localhost:9090/insert/' + artist + '/' + title + '/' + price + '/' + desc + '/' + subj;
+        axios.get(request).then(response => this.setState({blockchainID:response.data}))
+            .catch(function (error) {
+                console.log('get blockchain id after submission ' + error);
+            });
 
-        axios.post("http://localhost:9090/insert",{
+        /*axios.post("http://localhost:9090/insert",{
             artist:artist,
             title:title,
             price:price,
@@ -60,12 +66,17 @@ class PurchaseModal extends React.Component {
         })
         .then(function (response){
             success = true;
-            console.log(response.data);
+            console.log('submit art ' + response.data);
         })
         .catch(function (error) {
-            console.log(error);
+            console.log('submit art ' + error);
             success = false;
         });
+
+        axios.get("http://localhost:9090/getbID").then(response => this.setState({blockchainID:response.data}))
+            .catch(function (error) {
+                console.log('get blockchain id after submission ' + error);
+            });*/
 
         if(success == true){
             this.setState({submitStatus:'success',artist:artist,title:title,price:price,desc:desc,subj:subj});
@@ -104,7 +115,7 @@ class PurchaseModal extends React.Component {
         var modalButton;
 
         if(this.state.submitStatus == 'success'){
-            submitResponse = <h4>Successfully added artwork to blockchain</h4>
+            submitResponse = <div><h4>Successfully added artwork to blockchain.</h4><h4>Blockchain ID: {this.state.blockchainID}</h4></div>
             modalButton = <Button id="submit-button" onClick={() => this.props.onHide()}>Ok</Button>
         }else if(this.state.submitStatus == 'error'){
             submitResponse = <h4>Error adding artwork to blockchain</h4>

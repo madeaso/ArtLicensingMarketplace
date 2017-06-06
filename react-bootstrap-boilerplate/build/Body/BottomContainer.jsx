@@ -6,6 +6,7 @@ import {Modal,Button} from 'react-bootstrap';
 
 const imageWidth = 225;
 const imageHeight = 225;
+const logoArray = ['../../assets/squareOrangeLogo.png','../../assets/squareMagentaLogo.png','../../assets/squareGreenLogo.png'];
 
 class BottomContainer extends React.Component {
 
@@ -18,7 +19,8 @@ class BottomContainer extends React.Component {
             title:'',
             artist:'',
             description:'',
-            price:''
+            price:'',
+            blockchainID:''
         }
         this.close = this.close.bind(this);
     }
@@ -27,8 +29,8 @@ class BottomContainer extends React.Component {
         return {showModal:false};
     }
 
-    open(img,artist,title,desc,price,e){
-        this.setState({showModal:true, image:img, artist:artist, title:title,description:desc,price:price});
+    open(bID,img,artist,title,desc,price,e){
+        this.setState({showModal:true,blockchainID:bID,image:img, artist:artist, title:title,description:desc,price:price});
     }
 
     close(){
@@ -48,7 +50,7 @@ class BottomContainer extends React.Component {
                 gridItems.push(
                     <div id="item-container">
                         <img src={this.props.responseData[i].image_url} width={imageWidth} height={imageHeight} />
-                        <div id="overlay" onClick={this.open.bind(this,this.props.responseData[i].image_url,this.props.responseData[i].artist,this.props.responseData[i].title,this.props.responseData[i].description,this.props.responseData[i].price)}>
+                        <div id="overlay" onClick={this.open.bind(this,this.props.responseData[i].blockchain_id,this.props.responseData[i].image_url,this.props.responseData[i].artist,this.props.responseData[i].title,this.props.responseData[i].description,this.props.responseData[i].price)}>
                             <div id="text">{overlayText}</div>
                         </div>
                     </div>
@@ -56,22 +58,26 @@ class BottomContainer extends React.Component {
             }
             grid = (<div id="grid">{gridItems}</div>)
         }else{
+            var x = 0;
+            var overlayText;
             for(var i = 0; i < this.props.responseData.length; i++){
 
+                if(x != 0 && x%3 == 0){
+                    x = 0;
+                }
+
                 // Create overlay text
-                if(this.props.filter == 'artist')
-                    var overlayText = this.props.responseData[i].artist;
-                else
-                    var overlayText = this.props.responseData[i].subject_type;
+                overlayText = this.props.responseData[i];
 
                 gridItems.push(
                     <div id="item-container">
-                        <img src={this.props.responseData[i].image_url} width={imageWidth} height={imageHeight} />
-                        <div id="overlay" onClick={this.open.bind(this,this.props.responseData[i].image_url,this.props.responseData[i].artist,this.props.responseData[i].title,this.props.responseData[i].description,this.props.responseData[i].price)}>
-                            <div id="text">{overlayText}</div>
+                        <img src={logoArray[x]} width={imageWidth} height={imageHeight} />
+                        <div id="overlay-static">
+                            <div id="text-static">{overlayText}</div>
                         </div>
                     </div>
                 );
+                x = x +1;
             }
             grid = (<div id="grid">{gridItems}</div>)
         }
@@ -80,7 +86,8 @@ class BottomContainer extends React.Component {
             <div id="grid-container">
                 {grid}
                 <PurchaseModal showModal={this.state.showModal} onHide={() => this.close()} image={this.state.image}
-                 title={this.state.title} artist={this.state.artist} description={this.state.description} price={this.state.price}>
+                 title={this.state.title} artist={this.state.artist} description={this.state.description} price={this.state.price}
+                blockchainID = {this.state.blockchainID}>
                 </PurchaseModal>
             </div>
 

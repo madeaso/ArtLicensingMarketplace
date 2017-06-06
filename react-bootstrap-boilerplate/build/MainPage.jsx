@@ -17,6 +17,7 @@ class MainPage extends React.Component {
         super();
         this.state = {
             filter: ' ',
+            blockFilter:' ',
             responseData:[],
             dropDownTitle: 'Filter By',
             dropDownItems: ['Artist','Work','Subject']
@@ -42,9 +43,11 @@ class MainPage extends React.Component {
         var fullRequest = baseRequest + filterChoice;
         if(filterChoice == 'recent')
             filterChoice = 'single';
-        else
+        else{
+            var blockFilter = filterChoice;
             filterChoice = 'block';
-        axios.get(fullRequest).then(response => this.setState({filter:filterChoice,responseData:response.data}))
+        }
+        axios.get(fullRequest).then(response => this.setState({blockFilter: blockFilter,filter:filterChoice,responseData:response.data}))
         .catch(function (error) {
             console.log(error);
         });
@@ -54,7 +57,7 @@ class MainPage extends React.Component {
         var baseRequest = "http://localhost:9090/get/";
         var fullRequest = baseRequest + searchTerm + '/' + filterChoice;
         filterChoice = 'single';
-        console.log('search initiated');
+        console.log('search initiated' + fullRequest);
         axios.get(fullRequest).then(response => this.setState({filter:filterChoice,responseData:response.data}))
             .catch(function (error) {
                 console.log(error);
@@ -96,7 +99,7 @@ class MainPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <BottomContainer filter= {this.state.filter} responseData={this.state.responseData}></BottomContainer>
+                <BottomContainer filter= {this.state.filter} responseData={this.state.responseData} blockFilter={this.state.blockFilter}></BottomContainer>
             </div>
         );
     }

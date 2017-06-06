@@ -1,0 +1,10 @@
+#download-link{
+    color:#eaeaea;
+    text-decoration: none;
+}
+
+.btn:hover #download-link{
+    outline: none;
+    background-color:#eaeaea;
+    color:#727272;
+}
